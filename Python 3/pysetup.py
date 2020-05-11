@@ -108,6 +108,7 @@ def update_system_software():
         subprocess.run('sudo {0} full-upgrade'.format(APT),
                        shell=True, check=True)
         print()
+
     elif os.path.exists(DNF):
         print("{0}DNF System Software Section{1}".format(LIGHT_YELLOW,
                                                          COLOUR_RESET))
@@ -118,8 +119,8 @@ def update_system_software():
         pass
 
     if os.path.exists(FLATPAK):
-        print("{0}Flatpak System Software Section{1}".format(LIGHT_YELLOW,
-                                                             COLOUR_RESET))
+        print("{0}Flatpak Universal Software Section{1}".format(LIGHT_YELLOW,
+                                                                COLOUR_RESET))
         subprocess.run('{0} update'.format(FLATPAK),
                        shell=True, check=True)
         print()
@@ -127,8 +128,8 @@ def update_system_software():
         pass
 
     if os.path.exists(SNAP):
-        print("{0}Snap System Software Section{1}".format(LIGHT_YELLOW,
-                                                          COLOUR_RESET))
+        print("{0}Snap Universal Software Section{1}".format(LIGHT_YELLOW,
+                                                             COLOUR_RESET))
         subprocess.run('{0} refresh'.format(SNAP),
                        shell=True, check=True)
         print()
