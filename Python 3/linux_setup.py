@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Manage and maintain an installation of Fedora Workstation"""
+"""Manage and maintain your Linux installation"""
 
 ###########
 # Imports #
@@ -47,6 +47,7 @@ COLOUR_RESET = '\033[0;m'
 HOME = os.environ['HOME']
 
 # System Package Manager executables
+APT = '/usr/bin/apt'
 DNF = '/usr/bin/dnf'
 FLATPAK = '/usr/bin/flatpak'
 SNAP = '/usr/bin/snap'
@@ -64,9 +65,9 @@ def fedora_setup_menu():
 
     os.system('clear')
 
-    print('{0}Fedora System Maintenance Utility {1}{2}'.format(BOLD,
-                                                               SCRIPT_VERSION,
-                                                               COLOUR_RESET))
+    print('{0}Linux System Maintenance Utility {1}{2}'.format(BOLD,
+                                                              SCRIPT_VERSION,
+                                                              COLOUR_RESET))
     print('Copyright (C) 2020 William Whinn')
     print("{0}\n".format(SCRIPT_URL))
 
@@ -92,7 +93,17 @@ def fedora_setup_menu():
 def update_system_software():
     """Detect various package managers and update system software"""
 
-    if os.path.exists(DNF):
+    # Main system package managers (DNF, APT, etc.)
+    if os.path.exists(APT):
+        print("{0}APT System Software Section{1}".format(LIGHT_YELLOW,
+                                                         COLOUR_RESET))
+        subprocess.run('sudo {0} update'.format(APT),
+                       shell=True, check=True)
+        print()
+        subprocess.run('sudo {0} full-upgrade'.format(APT),
+                       shell=True, check=True)
+        print()
+    elif os.path.exists(DNF):
         print("{0}DNF System Software Section{1}".format(LIGHT_YELLOW,
                                                          COLOUR_RESET))
         subprocess.run('sudo {0} update --refresh'.format(DNF),
