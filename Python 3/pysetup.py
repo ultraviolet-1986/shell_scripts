@@ -183,9 +183,12 @@ def update_clamav_definitions():
 
         sys.exit("{0}ClamAV virus definitions have been updated.{1}\n"
                  .format(LIGHT_GREEN, COLOUR_RESET))
-    else:
-        sys.exit("{0}ClamAV 'freshclam' is not installed. Exiting.{1}\n"
+    elif not os.path.exists(FRESHCLAM):
+        sys.exit("\n{0}ClamAV 'freshclam' is not installed. Exiting.{1}\n"
                  .format(LIGHT_RED, COLOUR_RESET))
+    else:
+        sys.exit("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n"
+                .format(LIGHT_RED, COLOUR_RESET))
 
 #############
 # Kickstart #
