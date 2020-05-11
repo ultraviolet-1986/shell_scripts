@@ -56,6 +56,9 @@ SNAP = '/usr/bin/snap'
 ANACONDA = "{0}/anaconda3/bin/anaconda".format(HOME)
 CONDA = "{0}/anaconda3/bin/conda".format(HOME)
 
+# ClamAV Executables
+FRESHCLAM = '/usr/bin/freshclam'
+
 #############
 # Functions #
 #############
@@ -79,6 +82,8 @@ def linux_setup_menu():
     # Display Main Menu
     print('  {0}1.{1} Update System Software'.format(LIGHT_GREEN,
                                                      COLOUR_RESET))
+    print('  {0}2.{1} ClamAV Virus Definition Update'.format(LIGHT_GREEN,
+                                                             COLOUR_RESET))
     print()
     print('  {0}X.{1} Exit Program\n'.format(LIGHT_RED, COLOUR_RESET))
 
@@ -87,6 +92,9 @@ def linux_setup_menu():
     if answer == '1':
         clear()
         update_system_software()
+    elif answer == '2':
+        clear()
+        update_clamav_definitions()
     elif answer in ('X', 'x'):
         clear()
         sys.exit()
@@ -150,6 +158,15 @@ def update_system_software():
     print("{0}System software has been updated.{1}\n".format(LIGHT_GREEN,
                                                              COLOUR_RESET))
 
+
+def update_clamav_definitions():
+    """Update Antivirus definitions for ClamAV (if installed)"""
+
+    if os.path.exists(FRESHCLAM):
+        print("{0}ClamAV Antivirus Definitions Update{1}".format(LIGHT_YELLOW,
+                                                                 COLOUR_RESET))
+        subprocess.run('sudo {0}'.format(FRESHCLAM), shell=True, check=True)
+        print()
 
 #############
 # Kickstart #
