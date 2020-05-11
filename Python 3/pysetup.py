@@ -141,10 +141,8 @@ def update_system_software():
                COLOUR_RESET))
         subprocess.run('{0} update conda'.format(CONDA),
                        shell=True, check=True)
-        print()
         subprocess.run('{0} update anaconda'.format(CONDA),
                        shell=True, check=True)
-        print()
     else:
         pass
 
