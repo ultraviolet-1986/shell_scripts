@@ -168,6 +168,9 @@ def update_clamav_definitions():
         subprocess.run('sudo {0}'.format(FRESHCLAM), shell=True, check=True)
         print()
 
+    print("{0}ClamAV virus definitions have been updated.{1}\n".format(
+        LIGHT_GREEN, COLOUR_RESET))
+
 #############
 # Kickstart #
 #############
