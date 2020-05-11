@@ -81,7 +81,6 @@ def fedora_setup_menu():
 
     if answer == '1':
         os.system('clear')
-        print()
         update_system_software()
     elif answer in ('X', 'x'):
         print()
