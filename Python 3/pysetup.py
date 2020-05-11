@@ -168,8 +168,8 @@ def update_system_software():
     else:
         pass
 
-    print("{0}System software has been updated.{1}\n".format(LIGHT_GREEN,
-                                                             COLOUR_RESET))
+    sys.exit("{0}System software has been updated.{1}\n".format(LIGHT_GREEN,
+                                                                COLOUR_RESET))
 
 def update_clamav_definitions():
     """Update Antivirus definitions for ClamAV (if installed)"""
@@ -180,11 +180,11 @@ def update_clamav_definitions():
         subprocess.run('sudo {0}'.format(FRESHCLAM), shell=True, check=True)
         print()
 
-        print("{0}ClamAV virus definitions have been updated.{1}\n"
-              .format(LIGHT_GREEN, COLOUR_RESET))
+        sys.exit("{0}ClamAV virus definitions have been updated.{1}\n"
+                 .format(LIGHT_GREEN, COLOUR_RESET))
     else:
-        print(("{0}ClamAV Updater 'freshclam' is not installed. Exiting.{1}\n")
-              .format(LIGHT_RED, COLOUR_RESET))
+        sys.exit("{0}ClamAV 'freshclam' is not installed. Exiting.{1}\n"
+                 .format(LIGHT_RED, COLOUR_RESET))
 
 #############
 # Kickstart #
@@ -194,10 +194,10 @@ def update_clamav_definitions():
 if check_network_connection():
     linux_setup_menu()
 elif not check_network_connection():
-    print("\n{0}ERROR: Network connection not available. Exiting.{1}\n"
-          .format(LIGHT_RED, COLOUR_RESET))
+    sys.exit("\n{0}ERROR: Network connection not available. Exiting.{1}\n"
+             .format(LIGHT_RED, COLOUR_RESET))
 else:
-    print("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n"
-          .format(LIGHT_RED, COLOUR_RESET))
+    sys.exit("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n"
+             .format(LIGHT_RED, COLOUR_RESET))
 
 # End of File.
