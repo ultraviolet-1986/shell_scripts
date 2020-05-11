@@ -65,7 +65,7 @@ def clear():
     os.system('clear')
 
 
-def fedora_setup_menu():
+def linux_setup_menu():
     """Clear the screen and display the main menu"""
 
     clear()
@@ -147,10 +147,11 @@ def update_system_software():
     else:
         pass
 
+
 #############
 # Kickstart #
 #############
 
-fedora_setup_menu()
+linux_setup_menu()
 
 # End of File.
