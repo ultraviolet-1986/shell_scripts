@@ -61,6 +61,7 @@ CONDA = "{0}/anaconda3/bin/conda".format(HOME)
 #############
 
 def clear():
+    """Clear the current Terminal window"""
     os.system('clear')
 
 
@@ -135,17 +136,12 @@ def update_system_software():
         pass
 
     if os.path.exists(CONDA):
-        print("{0}Conda System Software Section{1}".format(LIGHT_YELLOW,
-                                                           COLOUR_RESET))
+        print("{0}Anaconda 3 Python Distribution Section{1}".format
+              (LIGHT_YELLOW,
+               COLOUR_RESET))
         subprocess.run('{0} update conda'.format(CONDA),
                        shell=True, check=True)
         print()
-    else:
-        pass
-
-    if os.path.exists(ANACONDA):
-        print("{0}Anaconda System Software Section{1}".format(LIGHT_YELLOW,
-                                                              COLOUR_RESET))
         subprocess.run('{0} update anaconda'.format(CONDA),
                        shell=True, check=True)
         print()
