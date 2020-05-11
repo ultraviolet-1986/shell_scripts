@@ -55,6 +55,9 @@ USER = os.environ['USER']
 #############
 
 
+def clear():
+    os.system('clear')
+
 def backup_dconf_settings():
     """Create a file containing common GTK desktop settings."""
     dconf_dump_file = 'dconf_dump.txt'
@@ -110,7 +113,7 @@ def create_checksum():
 #############
 
 
-os.system('clear')
+clear()
 
 # Select Backup Location
 print('{0}Home Folder Backup Utility{1}\n'.format(BOLD, COLOUR_RESET))
@@ -128,7 +131,7 @@ elif ANSWER == '2':
     print()
     BACKUP = '/run/media/{0}/{1}/Backup_{1}'.format(USER, HOSTNAME)
 elif ANSWER in ('X', 'x'):
-    print()
+    clear()
     sys.exit()
 else:
     print()

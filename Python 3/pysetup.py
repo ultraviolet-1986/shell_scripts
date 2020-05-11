@@ -60,10 +60,14 @@ CONDA = "{0}/anaconda3/bin/conda".format(HOME)
 # Functions #
 #############
 
+def clear():
+    os.system('clear')
+
+
 def fedora_setup_menu():
     """Clear the screen and display the main menu"""
 
-    os.system('clear')
+    clear()
 
     print('{0}Linux System Maintenance Utility {1}{2}'.format(BOLD,
                                                               SCRIPT_VERSION,
@@ -80,14 +84,15 @@ def fedora_setup_menu():
     answer = input("Please enter your selection: ")
 
     if answer == '1':
-        os.system('clear')
+        clear()
         update_system_software()
     elif answer in ('X', 'x'):
-        print()
+        clear()
         sys.exit()
     else:
         print()
         sys.exit('ERROR: Incorrect response\n')
+
 
 def update_system_software():
     """Detect various package managers and update system software"""
