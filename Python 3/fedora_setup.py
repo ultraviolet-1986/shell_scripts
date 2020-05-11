@@ -85,6 +85,7 @@ def fedora_setup_menu():
     answer = input("Please enter your selection: ")
 
     if answer == '1':
+        os.system('clear')
         print()
         update_system_software()
     elif answer in ('X', 'x'):
@@ -100,7 +101,7 @@ def update_system_software():
     if os.path.exists(DNF):
         print("{0}DNF System Software Section{1}".format(LIGHT_YELLOW,
                                                          COLOUR_RESET))
-        subprocess.run('pkexec {0} update --refresh'.format(DNF),
+        subprocess.run('sudo {0} update --refresh'.format(DNF),
                        shell=True, check=True)
         print()
     else:
@@ -118,7 +119,7 @@ def update_system_software():
     if os.path.exists(SNAP):
         print("{0}Snap System Software Section{1}".format(LIGHT_YELLOW,
                                                           COLOUR_RESET))
-        subprocess.run('pkexec {0} refresh'.format(SNAP),
+        subprocess.run('{0} refresh'.format(SNAP),
                        shell=True, check=True)
         print()
     else:
@@ -129,6 +130,7 @@ def update_system_software():
                                                            COLOUR_RESET))
         subprocess.run('{0} update conda'.format(CONDA),
                        shell=True, check=True)
+        print()
     else:
         pass
 
@@ -137,6 +139,7 @@ def update_system_software():
                                                               COLOUR_RESET))
         subprocess.run('{0} update anaconda'.format(CONDA),
                        shell=True, check=True)
+        print()
     else:
         pass
 
