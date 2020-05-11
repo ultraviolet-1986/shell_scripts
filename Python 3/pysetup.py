@@ -3,11 +3,18 @@
 
 """Manage and maintain your Linux installation"""
 
+##############
+# References #
+##############
+
+# Detect Internet Connection ..................... https://tinyurl.com/yc44q3b4
+
 ###########
 # Imports #
 ###########
 
 import os
+import socket
 import subprocess
 import sys
 
@@ -67,6 +74,14 @@ def clear():
     """Clear the current Terminal window"""
     os.system('clear')
 
+def check_network_connection():
+    """Detect whether or not an active Internet connection is available"""
+    try:
+        socket.create_connection(('1.1.1.1', 80))
+        return True
+    except OSError:
+        return False
+
 def linux_setup_menu():
     """Clear the screen and display the main menu"""
 
@@ -104,7 +119,7 @@ def linux_setup_menu():
 def update_system_software():
     """Detect various package managers and update system software"""
 
-    # Main system package managers (DNF, APT, etc.)
+    # Main system package managers (DNF, APT, etc.).
     if os.path.exists(APT):
         print("{0}APT System Software Section{1}".format(LIGHT_YELLOW,
                                                          COLOUR_RESET))
@@ -175,6 +190,14 @@ def update_clamav_definitions():
 # Kickstart #
 #############
 
-linux_setup_menu()
+# Load Main Menu only if an active Internet connection is present.
+if check_network_connection():
+    linux_setup_menu()
+elif not check_network_connection():
+    print("\n{0}ERROR: Network connection not available. Exiting.{1}\n"
+          .format(LIGHT_RED, COLOUR_RESET))
+else:
+    print("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n"
+          .format(LIGHT_RED, COLOUR_RESET))
 
 # End of File.
