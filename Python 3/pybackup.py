@@ -17,6 +17,10 @@ import sys
 # Variables #
 #############
 
+# Script Metadata
+SCRIPT_VERSION = '0.2.1'
+SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell-scripts'
+
 # String Colors
 BLUE = '\033[0;34m'
 CYAN = '\033[0;36m'
@@ -115,7 +119,12 @@ def create_checksum():
 clear()
 
 # Select Backup Location
-print('{0}Home Folder Backup Utility{1}\n'.format(BOLD, COLOUR_RESET))
+print('{0}Home Folder Backup Utility {1}{2}'.format(BOLD,
+                                                    SCRIPT_VERSION,
+                                                    COLOUR_RESET))
+print('Copyright (C) 2020 William Whinn')
+print("{0}\n".format(SCRIPT_URL))
+
 print('  {0}1.{1} Local Disk (Home Folder)'.format(LIGHT_GREEN, COLOUR_RESET))
 print('  {0}2.{1} External Media (Hostname as Disk Label)\n'.format(
     LIGHT_GREEN, COLOUR_RESET))

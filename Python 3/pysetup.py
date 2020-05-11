@@ -96,8 +96,8 @@ def linux_setup_menu():
     # Display Main Menu
     print('  {0}1.{1} Update System Software'.format(LIGHT_GREEN,
                                                      COLOUR_RESET))
-    print('  {0}2.{1} ClamAV Virus Definition Update'.format(LIGHT_GREEN,
-                                                             COLOUR_RESET))
+    print('  {0}2.{1} Update ClamAV Virus Definitions'.format(LIGHT_GREEN,
+                                                              COLOUR_RESET))
     print()
     print('  {0}X.{1} Exit Program\n'.format(LIGHT_RED, COLOUR_RESET))
 
