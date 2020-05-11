@@ -147,6 +147,9 @@ def update_system_software():
     else:
         pass
 
+    print("{0}System software has been updated.{1}\n".format(LIGHT_GREEN,
+                                                             COLOUR_RESET))
+
 
 #############
 # Kickstart #
