@@ -67,20 +67,14 @@ def fedora_setup_menu():
     print('{0}Fedora System Maintenance Utility {1}{2}'.format(BOLD,
                                                                SCRIPT_VERSION,
                                                                COLOUR_RESET))
-    print('{0}Copyright (C) 2020 William Whinn{1}'.format(BOLD,
-                                                          COLOUR_RESET))
-    print("{0}{1}{2}\n".format(BOLD,
-                               SCRIPT_URL,
-                               COLOUR_RESET))
+    print('Copyright (C) 2020 William Whinn')
+    print("{0}\n".format(SCRIPT_URL))
 
     # Display Main Menu
-    print('  {0}1.{1} Update System Software'.format(
-        LIGHT_GREEN,
-        COLOUR_RESET))
+    print('  {0}1.{1} Update System Software'.format(LIGHT_GREEN,
+                                                     COLOUR_RESET))
     print()
-    print('  {0}X.{1} Exit Program\n'.format(
-        LIGHT_RED,
-        COLOUR_RESET))
+    print('  {0}X.{1} Exit Program\n'.format(LIGHT_RED, COLOUR_RESET))
 
     answer = input("Please enter your selection: ")
 
