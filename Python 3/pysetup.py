@@ -137,7 +137,8 @@ def update_system_software():
                        shell=True, check=True)
         print()
     else:
-        pass
+        sys.exit("{0}Could not detect a native package manager. Exiting.{1}\n"
+                 .format(LIGHT_RED, COLOUR_RESET))
 
     if os.path.exists(FLATPAK):
         print("{0}Flatpak Universal Software Section{1}".format(LIGHT_YELLOW,
