@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-Create a compressed backup of the user's 'Home' folder.
-"""
+"""Create a compressed backup of the user's 'Home' folder."""
 
 ###########
 # Imports #
@@ -56,6 +54,7 @@ USER = os.environ['USER']
 
 
 def clear():
+    """Clear the current Terminal window."""
     os.system('clear')
 
 def backup_dconf_settings():

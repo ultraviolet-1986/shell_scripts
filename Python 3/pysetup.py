@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""Manage and maintain your Linux installation"""
+"""Manage and maintain your Linux installation."""
 
 ##############
 # References #
@@ -71,11 +71,11 @@ FRESHCLAM = '/usr/bin/freshclam'
 #############
 
 def clear():
-    """Clear the current Terminal window"""
+    """Clear the current Terminal window."""
     os.system('clear')
 
 def check_network_connection():
-    """Detect whether or not an active Internet connection is available"""
+    """Detect whether or not an active Internet connection is available."""
     try:
         socket.create_connection(('1.1.1.1', 80))
         return True
@@ -83,7 +83,7 @@ def check_network_connection():
         return False
 
 def linux_setup_menu():
-    """Clear the screen and display the main menu"""
+    """Clear the screen and display the main menu."""
 
     clear()
 
@@ -117,7 +117,7 @@ def linux_setup_menu():
         sys.exit('ERROR: Incorrect response\n')
 
 def update_system_software():
-    """Detect various package managers and update system software"""
+    """Detect various package managers and update system software."""
 
     # Main system package managers (DNF, APT, etc.).
     if os.path.exists(APT):
@@ -172,7 +172,7 @@ def update_system_software():
                                                                 COLOUR_RESET))
 
 def update_clamav_definitions():
-    """Update Antivirus definitions for ClamAV (if installed)"""
+    """Update Antivirus definitions for ClamAV (if installed)."""
 
     if os.path.exists(FRESHCLAM):
         print("{0}ClamAV Antivirus Definitions Update{1}".format(LIGHT_YELLOW,
