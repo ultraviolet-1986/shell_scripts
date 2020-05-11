@@ -67,7 +67,6 @@ def clear():
     """Clear the current Terminal window"""
     os.system('clear')
 
-
 def linux_setup_menu():
     """Clear the screen and display the main menu"""
 
@@ -101,7 +100,6 @@ def linux_setup_menu():
     else:
         print()
         sys.exit('ERROR: Incorrect response\n')
-
 
 def update_system_software():
     """Detect various package managers and update system software"""
@@ -157,7 +155,6 @@ def update_system_software():
 
     print("{0}System software has been updated.{1}\n".format(LIGHT_GREEN,
                                                              COLOUR_RESET))
-
 
 def update_clamav_definitions():
     """Update Antivirus definitions for ClamAV (if installed)"""
