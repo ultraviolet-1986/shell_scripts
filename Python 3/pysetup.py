@@ -23,7 +23,7 @@ import sys
 #############
 
 # Script Metadata
-SCRIPT_VERSION = '0.1.1'
+SCRIPT_VERSION = '0.1.2'
 SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell-scripts'
 
 # String colours and formatting
