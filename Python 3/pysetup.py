@@ -23,7 +23,7 @@ import sys
 #############
 
 # Script Metadata
-SCRIPT_VERSION = '0.1.3'
+SCRIPT_VERSION = '0.1.4'
 SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell-scripts'
 
 # String colours and formatting
@@ -56,10 +56,13 @@ HOME = os.environ['HOME']
 # System Package Manager executables
 APT = '/usr/bin/apt'
 DNF = '/usr/bin/dnf'
+RPM_OSTREE = '/usr/bin/rpm-ostree'
+
+# Universal Package Manager executables
 FLATPAK = '/usr/bin/flatpak'
 SNAP = '/usr/bin/snap'
 
-# Anaconda (User-Installed)
+# Anaconda (User-Installed) Package Manager executables
 ANACONDA = "{0}/anaconda3/bin/anaconda".format(HOME)
 CONDA = "{0}/anaconda3/bin/conda".format(HOME)
 
@@ -119,7 +122,7 @@ def linux_setup_menu():
 def update_system_software():
     """Detect various package managers and update system software."""
 
-    # Main system package managers (DNF, APT, etc.).
+    # Native Package Managers: DNF, APT, etc.
     if os.path.exists(APT):
         print("{0}APT System Software Section{1}".format(LIGHT_YELLOW,
                                                          COLOUR_RESET))
@@ -140,6 +143,20 @@ def update_system_software():
         sys.exit("{0}Could not detect a native package manager. Exiting.{1}\n"
                  .format(LIGHT_RED, COLOUR_RESET))
 
+    if os.path.exists(RPM_OSTREE):
+        print("{0}RPM-OSTree System Software Section{1}".format(LIGHT_YELLOW,
+                                                                COLOUR_RESET))
+        subprocess.run('{0} refresh-md'.format(RPM_OSTREE),
+                       shell=True, check=True)
+        print()
+        subprocess.run('{0} upgrade'.format(RPM_OSTREE),
+                       shell=True, check=True)
+        print()
+    else:
+        sys.exit("{0}Could not detect a native package manager. Exiting.{1}\n"
+                 .format(LIGHT_RED, COLOUR_RESET))
+
+    # Universal Package Managers: Flatpak, Snap, etc.
     if os.path.exists(FLATPAK):
         print("{0}Flatpak Universal Software Section{1}".format(LIGHT_YELLOW,
                                                                 COLOUR_RESET))
