@@ -205,7 +205,7 @@ def update_clamav_definitions():
                  .format(LIGHT_RED, COLOUR_RESET))
     else:
         sys.exit("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n"
-                .format(LIGHT_RED, COLOUR_RESET))
+                 .format(LIGHT_RED, COLOUR_RESET))
 
 #############
 # Kickstart #
