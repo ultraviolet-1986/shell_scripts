@@ -139,11 +139,8 @@ def update_system_software():
         subprocess.run('sudo {0} update --refresh'.format(DNF),
                        shell=True, check=True)
         print()
-    else:
-        sys.exit("{0}Could not detect a native package manager. Exiting.{1}\n"
-                 .format(LIGHT_RED, COLOUR_RESET))
 
-    if os.path.exists(RPM_OSTREE):
+    elif os.path.exists(RPM_OSTREE):
         print("{0}RPM-OSTree System Software Section{1}".format(LIGHT_YELLOW,
                                                                 COLOUR_RESET))
         subprocess.run('{0} refresh-md'.format(RPM_OSTREE),
@@ -152,6 +149,7 @@ def update_system_software():
         subprocess.run('{0} upgrade'.format(RPM_OSTREE),
                        shell=True, check=True)
         print()
+
     else:
         sys.exit("{0}Could not detect a native package manager. Exiting.{1}\n"
                  .format(LIGHT_RED, COLOUR_RESET))
