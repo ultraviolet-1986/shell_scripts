@@ -93,7 +93,7 @@ def backup_folder(archive_name, folder_to_compress):
                                                                  COLOUR_RESET))
 
 def create_checksum():
-    """Create a SHA512 checksum of the BACKUP arhive(s)."""
+    """Create a SHA512 checksum of the BACKUP archive(s)."""
     if glob.glob('{0}/*.tar.gz'.format(BACKUP)):
         sha512sum_file = 'BACKUP.sha512sum'
         sha512sum_command = \
