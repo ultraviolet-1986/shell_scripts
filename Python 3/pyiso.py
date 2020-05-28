@@ -18,6 +18,10 @@ import sys
 # Variables #
 #############
 
+# Script Metadata
+SCRIPT_VERSION = '0.1.2'
+SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell_scripts'
+
 MKISOFS = '/usr/bin/mkisofs'
 
 # String colours and formatting

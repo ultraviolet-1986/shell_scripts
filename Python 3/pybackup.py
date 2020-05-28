@@ -19,7 +19,7 @@ import sys
 
 # Script Metadata
 SCRIPT_VERSION = '0.2.2'
-SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell-scripts'
+SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell_scripts'
 
 # String Colors
 BLUE = '\033[0;34m'
