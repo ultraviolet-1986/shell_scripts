@@ -205,6 +205,11 @@ EVOLUTION_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Evolution'.format(HOME)
 EVOLUTION_FLATPAK_DATA_ARCHIVE = '{0}/EvolutionFlatpakBackup'.format(BACKUP)
 backup_folder(EVOLUTION_FLATPAK_DATA_ARCHIVE, EVOLUTION_FLATPAK_DATA_FOLDER)
 
+# Backup Firefox (Flatpak).
+FIREFOX_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.mozilla.firefox'.format(HOME)
+FIREFOX_FLATPAK_DATA_ARCHIVE = '{0}/FirefoxFlatpakBackup'.format(BACKUP)
+backup_folder(FIREFOX_FLATPAK_DATA_ARCHIVE, FIREFOX_FLATPAK_DATA_FOLDER)
+
 # Backup GEdit (Flatpak).
 GEDIT_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.gedit'.format(HOME)
 GEDIT_FLATPAK_DATA_ARCHIVE = '{0}/GEditFlatpakBackup'.format(BACKUP)
