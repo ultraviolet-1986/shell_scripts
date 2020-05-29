@@ -63,6 +63,7 @@ def generate_disk_label():
 
     return label
 
+
 def create_disk_image(target):
     """
     Create a UDF disk image (non IS0-9660 compliant). Requires 'genisoimage'

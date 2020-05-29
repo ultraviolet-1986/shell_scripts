@@ -61,6 +61,7 @@ def clear():
     """Clear the current Terminal window."""
     os.system('clear')
 
+
 def backup_dconf_settings():
     """Create a file containing common GTK desktop settings."""
     dconf_dump_file = 'dconf_dump.txt'
@@ -73,6 +74,7 @@ def backup_dconf_settings():
                                                             BACKUP,
                                                             dconf_dump_file,
                                                             COLOUR_RESET))
+
 
 def backup_folder(archive_name, folder_to_compress):
     """Create a compressed archive of a target folder."""
@@ -91,6 +93,7 @@ def backup_folder(archive_name, folder_to_compress):
                                                                  archive_name,
                                                                  current_time,
                                                                  COLOUR_RESET))
+
 
 def create_checksum():
     """Create a SHA512 checksum of the BACKUP archive(s)."""
