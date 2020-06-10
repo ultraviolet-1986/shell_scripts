@@ -180,9 +180,7 @@ def update_system_software():
         print("{0}Anaconda 3 Python Distribution Section{1}".format
               (LIGHT_YELLOW,
                COLOUR_RESET))
-        subprocess.run('{0} update conda'.format(CONDA),
-                       shell=True, check=True)
-        subprocess.run('{0} update anaconda'.format(CONDA),
+        subprocess.run('{0} update --all'.format(CONDA),
                        shell=True, check=True)
     else:
         pass
