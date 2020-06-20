@@ -17,6 +17,7 @@ import sys
 #############
 
 # Script Metadata
+
 SCRIPT_VERSION = '0.0.1'
 SCRIPT_URL = 'https://github.com/ultraviolet-1968/shell_scripts'
 
