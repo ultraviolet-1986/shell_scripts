@@ -190,4 +190,3 @@ def remove_rpm_software():
 silverblue_setup_menu()
 
 # End of File.
-
