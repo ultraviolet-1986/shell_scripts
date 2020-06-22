@@ -156,7 +156,7 @@ def install_flatpak_software():
 def remove_flatpak_software():
     """Remove software defined within the 'FLATPAK_SOFTWARE' variable."""
     for i in FLATPAK_SOFTWARE:
-        subprocess.run("flatpak uninstall {0}".format(i),
+        subprocess.run("flatpak uninstall -y {0}".format(i),
                        shell=True, check=True)
 
 
