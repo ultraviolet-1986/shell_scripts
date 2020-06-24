@@ -55,15 +55,15 @@ def remove_minecraft_data():
 
     if os.path.exists("{0}/minecraft.tar.gz".format(DOWNLOADS)):
         os.remove("{0}/minecraft.tar.gz".format(DOWNLOADS))
-        print("Deleted pre-existing 'minecraft.tar.gz' file.")
+        print("Deleted old 'minecraft.tar.gz' file.")
 
     if os.path.exists("{0}/Minecraft".format(DOWNLOADS)):
         shutil.rmtree("{0}/Minecraft".format(DOWNLOADS))
-        print("Deleted pre-existing 'Minecraft' directory.")
+        print("Deleted old 'Minecraft' directory.")
 
     if os.path.exists("{0}/minecraft-launcher".format(DOWNLOADS)):
         shutil.rmtree("{0}/minecraft-launcher".format(DOWNLOADS))
-        print("Deleted pre-existing 'minecraft-launcher' directory.")
+        print("Deleted old 'minecraft-launcher' directory.")
 
 def download_minecraft_data():
     """Download minecraft data and compile a mountable .iso image file."""
@@ -100,7 +100,7 @@ def download_minecraft_data():
     # Remove previous build of 'Minecraft.iso' file if exists.
     if os.path.exists("{0}/Minecraft.iso".format(DOWNLOADS)):
         os.remove("{0}/Minecraft.iso".format(DOWNLOADS))
-        print("Deleted pre-existing 'Minecraft.iso' file.")
+        print("Deleted old 'Minecraft.iso' file.")
 
     # Create the .iso Disk Image.
     mkisofs_command = ("mkisofs -volid 'Minecraft' -o '{0}/Minecraft.iso' "
