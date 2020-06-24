@@ -48,6 +48,7 @@ def check_network_connection():
     except OSError:
         return False
 
+
 def remove_minecraft_data():
     """Delete data which are not part of the final .iso image."""
 
@@ -64,6 +65,7 @@ def remove_minecraft_data():
     if os.path.exists("{0}/minecraft-launcher".format(DOWNLOADS)):
         shutil.rmtree("{0}/minecraft-launcher".format(DOWNLOADS))
         print("Deleted old 'minecraft-launcher' directory.")
+
 
 def download_minecraft_data():
     """Download minecraft data and compile a mountable .iso image file."""
