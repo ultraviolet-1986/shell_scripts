@@ -3,7 +3,7 @@
 
 """
 Download the Minecraft game launcher for GNU/Linux from Microsoft/Mojang and
-create a mountable .iso disk image.
+create a mountable .iso disk image within the user's ~/Downloads folder.
 """
 
 ###########
