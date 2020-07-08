@@ -108,9 +108,7 @@ def silverblue_setup_menu():
     """Display the program's main menu."""
     clear()
 
-    print("{0}Fedora Silverblue Setup Menu {1}{2}".format(BOLD,
-                                                          SCRIPT_VERSION,
-                                                          COLOUR_RESET))
+    print("{0}Fedora Silverblue Setup Menu {1}{2}".format(BOLD, SCRIPT_VERSION, COLOUR_RESET))
     print("Copyright (C) 2020 William Whinn")
     print("{0}".format(SCRIPT_URL))
 
@@ -142,29 +140,25 @@ def silverblue_setup_menu():
         sys.exit()
     else:
         print()
-        sys.exit("{0}ERROR: Incorrect Response.{1}\n".format(RED,
-                                                             COLOUR_RESET))
+        sys.exit("{0}ERROR: Incorrect Response.{1}\n".format(RED, COLOUR_RESET))
 
 
 def install_flatpak_software():
     """Install software defined within the 'FLATPAK_SOFTWARE' variable."""
     for i in FLATPAK_SOFTWARE:
-        subprocess.run("flatpak install fedora -y {0}".format(i),
-                       shell=True, check=True)
+        subprocess.run("flatpak install fedora -y {0}".format(i), shell=True, check=True)
 
 
 def remove_flatpak_software():
     """Remove software defined within the 'FLATPAK_SOFTWARE' variable."""
     for i in FLATPAK_SOFTWARE:
-        subprocess.run("flatpak uninstall -y {0}".format(i),
-                       shell=True, check=True)
+        subprocess.run("flatpak uninstall -y {0}".format(i), shell=True, check=True)
 
 
 def install_rpm_software():
     """Install software defined within the 'RPM_SOFTWARE' variable."""
     try:
-        subprocess.run("rpm-ostree install {0}".format(RPM_SOFTWARE),
-                       shell=True, check=True)
+        subprocess.run("rpm-ostree install {0}".format(RPM_SOFTWARE), shell=True, check=True)
     except OSError as error:
         if error.errno == errno.ENOENT:
             pass
@@ -175,8 +169,7 @@ def install_rpm_software():
 def remove_rpm_software():
     """Remove software defined within the 'RPM_SOFTWARE' variable."""
     try:
-        subprocess.run("rpm-ostree remove {0}".format(RPM_SOFTWARE),
-                       shell=True, check=True)
+        subprocess.run("rpm-ostree remove {0}".format(RPM_SOFTWARE), shell=True, check=True)
     except OSError as error:
         if error.errno == errno.ENOENT:
             pass
