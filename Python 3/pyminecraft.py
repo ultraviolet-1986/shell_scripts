@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Download the Minecraft game launcher for GNU/Linux from Microsoft/Mojang and
-create a mountable .iso disk image within the user's ~/Downloads folder.
+Download the Minecraft game launcher for GNU/Linux from Microsoft/Mojang and create a mountable
+.iso disk image within the user's ~/Downloads folder.
 """
 
 ###########
@@ -72,15 +72,13 @@ def download_minecraft_data():
 
     # Terminate if dependency 'genisoimage' is not installed.
     if not os.path.exists(MKISOFS_PATH):
-        sys.exit("{0}ERROR: Program dependency 'genisoimage' not installed.{1}"
-                 .format(RED, RESET))
+        sys.exit("{0}ERROR: Program dependency 'genisoimage' not installed.{1}".format(RED, RESET))
 
     remove_minecraft_data()
 
     # Download the 'minecraft.tar.gz' file.
     print("Downloading Minecraft launcher archive...")
-    urllib.request.urlretrieve(MINECRAFT_URL, "{0}/minecraft.tar.gz"
-                               .format(DOWNLOADS))
+    urllib.request.urlretrieve(MINECRAFT_URL, "{0}/minecraft.tar.gz".format(DOWNLOADS))
 
     # Extract the contents of 'minecraft.tar.gz'.
     print("Extracting Minecraft launcher archive...")
@@ -105,9 +103,8 @@ def download_minecraft_data():
         print("Deleted old 'Minecraft.iso' file.")
 
     # Create the .iso Disk Image.
-    mkisofs_command = ("mkisofs -volid 'Minecraft' -o '{0}/Minecraft.iso' "
-                       "-input-charset UTF-8 -joliet -joliet-long "
-                       "-rock '{0}/minecraft-launcher' > /dev/null 2>&1"
+    mkisofs_command = ("mkisofs -volid 'Minecraft' -o '{0}/Minecraft.iso' -input-charset UTF-8 "
+                       "-joliet -joliet-long -rock '{0}/minecraft-launcher' > /dev/null 2>&1"
                        .format(DOWNLOADS))
     print("Building '{0}/Minecraft.iso' disk image...".format(DOWNLOADS))
     subprocess.run(mkisofs_command, shell=True, check=True)
@@ -122,10 +119,8 @@ def download_minecraft_data():
 if check_network_connection():
     download_minecraft_data()
 elif not check_network_connection():
-    sys.exit("\n{0}ERROR: Network connection not available. Exiting.{1}\n"
-             .format(RED, RESET))
+    sys.exit("\n{0}ERROR: Network connection not available. Exiting.{1}\n".format(RED, RESET))
 else:
-    sys.exit("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n"
-             .format(RED, RESET))
+    sys.exit("\n{0}ERROR: An unknown error occurred. Exiting.{1}\n".format(RED, RESET))
 
 # End of File.
