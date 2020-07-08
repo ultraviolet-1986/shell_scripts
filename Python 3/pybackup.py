@@ -65,30 +65,29 @@ def clear():
 def backup_dconf_settings():
     """Create a file containing common GTK desktop settings."""
     dconf_dump_file = 'dconf_dump.txt'
-    dconf_dump_command = 'dconf dump / > {0}/{1}'.format(BACKUP,
-                                                         dconf_dump_file)
+    dconf_dump_command = 'dconf dump / > {0}/{1}'.format(BACKUP, dconf_dump_file)
 
     if DESKTOP != 'KDE':
         subprocess.run(dconf_dump_command, shell=True, check=True)
-        print('Created Settings File {0}{1}/{2}{3}.'.format(YELLOW,
-                                                            BACKUP,
-                                                            dconf_dump_file,
-                                                            COLOUR_RESET))
+        print('Created Settings File {0}{1}/{2}{3}.'
+              .format(YELLOW, BACKUP, dconf_dump_file, COLOUR_RESET))
 
 
 def backup_folder(archive_name, folder_to_compress):
     """Create a compressed archive of a target folder."""
     now = datetime.datetime.now()
-    current_time = "{:04d}{:02d}{:02d}T{:02d}{:02d}{:02d}Z".format(
-        now.year, now.month, now.day, now.hour, now.minute, now.second)
+    current_time = "{:04d}{:02d}{:02d}T{:02d}{:02d}{:02d}Z".format(now.year,
+                                                                   now.month,
+                                                                   now.day,
+                                                                   now.hour,
+                                                                   now.minute,
+                                                                   now.second)
 
-    if os.path.exists(folder_to_compress) and os.path.isdir(
-            folder_to_compress):
+    if os.path.exists(folder_to_compress) and os.path.isdir(folder_to_compress):
         if os.listdir(folder_to_compress):
-            subprocess.run(
-                'tar -czf "{0}_{1}.tar.gz" "{2}" --absolute-names'.format(
-                    archive_name, current_time, folder_to_compress),
-                shell=True, check=True)
+            subprocess.run('tar -czf "{0}_{1}.tar.gz" "{2}" --absolute-names'
+                           .format(archive_name, current_time, folder_to_compress),
+                           shell=True, check=True)
             print('Created Archive {0}{1}_{2}.tar.gz{3}.'.format(YELLOW,
                                                                  archive_name,
                                                                  current_time,
@@ -99,15 +98,12 @@ def create_checksum():
     """Create a SHA512 checksum of the BACKUP archive(s)."""
     if glob.glob('{0}/*.tar.gz'.format(BACKUP)):
         sha512sum_file = 'BACKUP.sha512sum'
-        sha512sum_command = \
-            'cd {0}; sha512sum *.tar.gz > "{0}/{1}"; cd ~-'\
-            .format(BACKUP, sha512sum_file)
+        sha512sum_command = 'cd {0}; sha512sum *.tar.gz > "{0}/{1}"; cd ~-'.format(BACKUP,
+                                                                                   sha512sum_file)
 
         subprocess.run(sha512sum_command, shell=True, check=True)
-        print('Created Checksum {0}{1}/{2}{3}.'.format(YELLOW,
-                                                       BACKUP,
-                                                       sha512sum_file,
-                                                       COLOUR_RESET))
+        print('Created Checksum {0}{1}/{2}{3}.'
+              .format(YELLOW, BACKUP, sha512sum_file, COLOUR_RESET))
     else:
         pass
 
@@ -118,17 +114,13 @@ def create_checksum():
 clear()
 
 # Display script header.
-print('{0}Linux Home Folder Backup Utility {1}{2}'.format(BOLD,
-                                                          SCRIPT_VERSION,
-                                                          COLOUR_RESET))
+print('{0}Linux Home Folder Backup Utility {1}{2}'.format(BOLD, SCRIPT_VERSION, COLOUR_RESET))
 print('Copyright (C) 2020 William Whinn')
 print("{0}\n".format(SCRIPT_URL))
 
 # Select Backup Location.
-print('  {0}1.{1} Local Disk (Home Folder)'.format(LIGHT_GREEN,
-                                                   COLOUR_RESET))
-print('  {0}2.{1} External Media (Hostname as Disk Label)\n'
-      .format(LIGHT_GREEN, COLOUR_RESET))
+print('  {0}1.{1} Local Disk (Home Folder)'.format(LIGHT_GREEN, COLOUR_RESET))
+print('  {0}2.{1} External Media (Hostname as Disk Label)\n'.format(LIGHT_GREEN, COLOUR_RESET))
 print('  {0}X.{1} Exit Program\n'.format(LIGHT_RED, COLOUR_RESET))
 
 ANSWER = input("Please enter your selection: ")
@@ -144,16 +136,15 @@ elif ANSWER in ('X', 'x'):
     sys.exit()
 else:
     print()
-    sys.exit("{0}ERROR: Incorrect response{1}\n".format(LIGHT_RED,
-                                                        COLOUR_RESET))
+    sys.exit("{0}ERROR: Incorrect response{1}\n".format(LIGHT_RED, COLOUR_RESET))
 
 # Create Backup Location.
 if not os.path.exists(BACKUP):
     os.makedirs(BACKUP)
 
 clear()
-print("{0}Now performing backup of Home Folder data. Please Wait...{1}\n"
-      .format(LIGHT_YELLOW, COLOUR_RESET))
+print("{0}Now performing backup of Home Folder data. Please Wait...{1}\n".format(LIGHT_YELLOW,
+                                                                                 COLOUR_RESET))
 
 # Record GTK-based desktop settings.
 backup_dconf_settings()
@@ -169,34 +160,24 @@ GIMP_FLATPAK_DATA_ARCHIVE = '{0}/GIMPFlatpakBackup'.format(BACKUP)
 backup_folder(GIMP_FLATPAK_DATA_ARCHIVE, GIMP_FLATPAK_DATA_FOLDER)
 
 # Backup GNOME Calculator (Flatpak).
-GNOMECALC_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Calculator'.format(
-    HOME)
-GNOMECALC_FLATPAK_DATA_ARCHIVE = '{0}/GNOMECalculatorFlatpakBackup'.format(
-    BACKUP)
+GNOMECALC_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Calculator'.format(HOME)
+GNOMECALC_FLATPAK_DATA_ARCHIVE = '{0}/GNOMECalculatorFlatpakBackup'.format(BACKUP)
 backup_folder(GNOMECALC_FLATPAK_DATA_ARCHIVE, GNOMECALC_FLATPAK_DATA_FOLDER)
 
 # Backup GNOME Calendar (Flatpak).
-GNOMECALENDAR_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Calendar'.format(
-    HOME)
-GNOMECALENDAR_FLATPAK_DATA_ARCHIVE = '{0}/GNOMECalendarFlatpakBackup'.format(
-    BACKUP)
-backup_folder(GNOMECALENDAR_FLATPAK_DATA_ARCHIVE,
-              GNOMECALENDAR_FLATPAK_DATA_FOLDER)
+GNOMECALENDAR_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Calendar'.format(HOME)
+GNOMECALENDAR_FLATPAK_DATA_ARCHIVE = '{0}/GNOMECalendarFlatpakBackup'.format(BACKUP)
+backup_folder(GNOMECALENDAR_FLATPAK_DATA_ARCHIVE, GNOMECALENDAR_FLATPAK_DATA_FOLDER)
 
 # Backup GNOME Clocks (Flatpak).
 GNOMECLOCKS_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.clocks'.format(HOME)
-GNOMECLOCKS_FLATPAK_DATA_ARCHIVE = '{0}/GNOMEClocksFlatpakBackup'.format(
-    BACKUP)
-backup_folder(GNOMECLOCKS_FLATPAK_DATA_ARCHIVE,
-              GNOMECLOCKS_FLATPAK_DATA_FOLDER)
+GNOMECLOCKS_FLATPAK_DATA_ARCHIVE = '{0}/GNOMEClocksFlatpakBackup'.format(BACKUP)
+backup_folder(GNOMECLOCKS_FLATPAK_DATA_ARCHIVE, GNOMECLOCKS_FLATPAK_DATA_FOLDER)
 
 # Backup GNOME Contacts (Flatpak).
-GNOMECONTACTS_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Contacts'.format(
-    HOME)
-GNOMECONTACTS_FLATPAK_DATA_ARCHIVE = '{0}/GNOMEContactsFlatpakBackup'.format(
-    BACKUP)
-backup_folder(GNOMECONTACTS_FLATPAK_DATA_ARCHIVE,
-              GNOMECONTACTS_FLATPAK_DATA_FOLDER)
+GNOMECONTACTS_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Contacts'.format(HOME)
+GNOMECONTACTS_FLATPAK_DATA_ARCHIVE = '{0}/GNOMEContactsFlatpakBackup'.format(BACKUP)
+backup_folder(GNOMECONTACTS_FLATPAK_DATA_ARCHIVE, GNOMECONTACTS_FLATPAK_DATA_FOLDER)
 
 # Backup Evince (Flatpak).
 EVINCE_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.gnome.Evince'.format(HOME)
@@ -225,12 +206,9 @@ INKSCAPE_FLATPAK_DATA_ARCHIVE = '{0}/InkscapeFlatpakBackup'.format(BACKUP)
 backup_folder(INKSCAPE_FLATPAK_DATA_ARCHIVE, INKSCAPE_FLATPAK_DATA_FOLDER)
 
 # Backup LibreOffice (Flatpak).
-LIBREOFFICE_FLATPAK_DATA_FOLDER = \
-    '{0}/.var/app/org.libreoffice.LibreOffice'.format(HOME)
-LIBREOFFICE_FLATPAK_DATA_ARCHIVE = '{0}/LibreofficeFlatpakBackup'.format(
-    BACKUP)
-backup_folder(LIBREOFFICE_FLATPAK_DATA_ARCHIVE,
-              LIBREOFFICE_FLATPAK_DATA_FOLDER)
+LIBREOFFICE_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.libreoffice.LibreOffice'.format(HOME)
+LIBREOFFICE_FLATPAK_DATA_ARCHIVE = '{0}/LibreofficeFlatpakBackup'.format(BACKUP)
+backup_folder(LIBREOFFICE_FLATPAK_DATA_ARCHIVE, LIBREOFFICE_FLATPAK_DATA_FOLDER)
 
 # Backup Minecraft.
 MINECRAFT_DATA_FOLDER = '{0}/.minecraft'.format(HOME)
@@ -320,8 +298,6 @@ backup_folder(DOCUMENTS_DATA_ARCHIVE, DOCUMENTS_DATA_FOLDER)
 create_checksum()
 
 # Final newline.
-sys.exit("\n{0}Files have been backed up to {1}.{2}\n".format(LIGHT_GREEN,
-                                                              BACKUP,
-                                                              COLOUR_RESET))
+sys.exit("\n{0}Files have been backed up to {1}.{2}\n".format(LIGHT_GREEN, BACKUP, COLOUR_RESET))
 
 # End of File.
