@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 """
-Create an encrypted backup of a target file, or decrypt an encrypted file using
-GnuPG from package 'gnupg2'.
+Create an encrypted backup of a target file, or decrypt an encrypted file using GnuPG from package
+'gnupg2'.
 """
 
 ###########
@@ -46,17 +46,12 @@ def gpg_encrypt_file(target):
     """Create a GnuPG encrypted file."""
     try:
         if os.path.exists(target):
-            subprocess.run("gpg --symmetric {0}".format(target),
-                           shell=True, check=True)
-            sys.exit("{0}SUCCESS: File '{1}' has been encrypted.{2}"
-                     .format(GREEN, target, RESET))
+            subprocess.run("gpg --symmetric {0}".format(target), shell=True, check=True)
+            sys.exit("{0}SUCCESS: File '{1}' has been encrypted.{2}".format(GREEN, target, RESET))
         elif not os.path.exists(target):
-            sys.exit("{0}ERROR: File '{1}' does not exist.{2}".format(RED,
-                                                                      target,
-                                                                      RESET))
+            sys.exit("{0}ERROR: File '{1}' does not exist.{2}".format(RED, target, RESET))
         else:
-            sys.exit("{0}ERROR: An unknown error occurred.{1}".format(RED,
-                                                                      RESET))
+            sys.exit("{0}ERROR: An unknown error occurred.{1}".format(RED, RESET))
     except OSError as error:
         if error.errno == errno.ENOENT:
             pass
@@ -71,18 +66,14 @@ def gpg_decrypt_file(target):
 
     try:
         if os.path.exists(target):
-            subprocess.run('gpg --output "{0}" --decrypt "{1}"'
-                           .format(decrypted_file_basename, target),
+            subprocess.run('gpg --output "{0}" --decrypt "{1}"'.format(decrypted_file_basename,
+                                                                       target),
                            shell=True, check=True)
-            sys.exit("{0}SUCCESS: File '{1}' has been decrypted.{2}"
-                     .format(GREEN, target, RESET))
+            sys.exit("{0}SUCCESS: File '{1}' has been decrypted.{2}".format(GREEN, target, RESET))
         elif not os.path.exists(target):
-            sys.exit("{0}ERROR: File '{1}' does not exist.{2}".format(RED,
-                                                                      target,
-                                                                      RESET))
+            sys.exit("{0}ERROR: File '{1}' does not exist.{2}".format(RED, target, RESET))
         else:
-            sys.exit("{0}ERROR: An unknown error occurred.{1}".format(RED,
-                                                                      RESET))
+            sys.exit("{0}ERROR: An unknown error occurred.{1}".format(RED, RESET))
     except OSError as error:
         if error.errno == errno.ENOENT:
             pass
@@ -98,8 +89,7 @@ ARGS = PARSER.parse_args()
 
 # Pass command-line argument.
 if not os.path.exists(GPG_PATH):
-    sys.exit("{0}ERROR: Package 'gnupg2' is not installed.{1}".format(RED,
-                                                                      RESET))
+    sys.exit("{0}ERROR: Package 'gnupg2' is not installed.{1}".format(RED, RESET))
 elif ARGS.encrypt:
     gpg_encrypt_file(ARGS.encrypt)
 elif ARGS.decrypt:
