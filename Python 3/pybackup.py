@@ -200,8 +200,7 @@ GEDIT_FLATPAK_DATA_ARCHIVE = '{0}/GEditFlatpakBackup'.format(BACKUP)
 backup_folder(GEDIT_FLATPAK_DATA_ARCHIVE, GEDIT_FLATPAK_DATA_FOLDER)
 
 # Backup Inkscape (Flatpak).
-INKSCAPE_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.inkscape.Inkscape'.format(
-    HOME)
+INKSCAPE_FLATPAK_DATA_FOLDER = '{0}/.var/app/org.inkscape.Inkscape'.format(HOME)
 INKSCAPE_FLATPAK_DATA_ARCHIVE = '{0}/InkscapeFlatpakBackup'.format(BACKUP)
 backup_folder(INKSCAPE_FLATPAK_DATA_ARCHIVE, INKSCAPE_FLATPAK_DATA_FOLDER)
 
