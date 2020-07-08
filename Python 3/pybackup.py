@@ -69,8 +69,10 @@ def backup_dconf_settings():
 
     if DESKTOP != 'KDE':
         subprocess.run(dconf_dump_command, shell=True, check=True)
-        print('Created Settings File {0}{1}/{2}{3}.'
-              .format(YELLOW, BACKUP, dconf_dump_file, COLOUR_RESET))
+        print('Created Settings File {0}{1}/{2}{3}.'.format(YELLOW,
+                                                            BACKUP,
+                                                            dconf_dump_file,
+                                                            COLOUR_RESET))
 
 
 def backup_folder(archive_name, folder_to_compress):
