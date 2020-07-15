@@ -69,6 +69,7 @@ bootstrap_r_development_container()
       'udunits2-devel'
 
     # Stop and exit the container if Toolbox has not stopped it.
+    sleep 1
     podman stop dev-R
 
   elif ( ! command -v 'toolbox' > /dev/null 2>&1 ) ; then
