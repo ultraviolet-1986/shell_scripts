@@ -154,10 +154,15 @@ install_rstudio() {
   sudo dnf install -y \
     compat-openssl10 \
     libcurl-devel \
+    libjpeg-turbo-devel \
+    libsodium-devel \
     libxml2-devel \
     openssl-devel \
+    R \
+    R-Rcpp \
+    R-Rcpp-devel \
     rstudio-desktop \
-    R
+    udunits2-devel
 
   # Remove unused Java menu entries (system-wide).
   for f in /usr/share/applications/java-1.8.0-openjdk-1.8.0*.desktop ; do
