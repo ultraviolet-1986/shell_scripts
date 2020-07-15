@@ -72,6 +72,8 @@ bootstrap_r_development_container()
     sleep 1
     podman stop dev-R
 
+    return 0
+
   elif ( ! command -v 'toolbox' > /dev/null 2>&1 ) ; then
     echo -e "ERROR: This program requires package 'toolbox' to be installed."
     return 127
