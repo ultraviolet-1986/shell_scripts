@@ -36,14 +36,14 @@
 bootstrap_r_development_container()
 {
   if ( command -v 'toolbox' > /dev/null 2>&1 ) && ( ping -c 1 1.1.1.1 ) &> /dev/null ; then
-    # Create a Fedora Toolbox named 'dev-R'.
-    toolbox create --container dev-R
+    # Create a Fedora Toolbox named 'rdev'.
+    toolbox create --container rdev
 
-    # Update the new 'dev-R' toolbox.
-    toolbox run --container dev-R 'sudo' 'dnf' 'update' '--refresh' '-y'
+    # Update the new 'rdev' toolbox.
+    toolbox run --container rdev 'sudo' 'dnf' 'update' '--refresh' '-y'
 
-    # Install R development software into the 'dev-R' container.
-    toolbox run --container dev-R 'sudo' 'dnf' 'install' '-y' \
+    # Install R development software into the 'rdev' container.
+    toolbox run --container rdev 'sudo' 'dnf' 'install' '-y' \
       'adobe-source-code-pro-fonts' \
       'cairo-devel' \
       'compat-openssl10' \
@@ -70,7 +70,7 @@ bootstrap_r_development_container()
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
-    podman stop dev-R
+    podman stop rdev
 
     return 0
 
