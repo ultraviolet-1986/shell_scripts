@@ -258,6 +258,10 @@ configure_preferred_software() {
     langpacks-en \
     make \
     mpv \
+    ruby \
+    ruby-devel \
+    rubygem-bundler \
+    rubygem-rake \
     simple-scan \
     skypeforlinux \
     transmission \
