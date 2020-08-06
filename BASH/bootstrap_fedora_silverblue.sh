@@ -230,11 +230,13 @@ configure_preferred_software() {
   echo -e "${YELLOW}Note: Installing DNF software from sources configured in Option 2.${RESET}\\n"
 
   rpm-ostree install \
+    aspnetcore-runtime-3.1 \
     automake \
     baobab \
     clamav \
     clamav-update \
     code \
+    dotnet-sdk-3.1 \
     eog \
     evince \
     evolution \
