@@ -50,8 +50,8 @@ readonly ANACONDA_INSTALL_LOCATION="$HOME/anaconda3"
 
 # Anaconda 3 Distribution (Linux x86_64)
 readonly ANACONDA_URL='https://repo.anaconda.com/archive'
-readonly ANACONDA_INSTALLER='Anaconda3-2020.02-Linux-x86_64.sh'
-readonly ANACONDA_HASH='2b9f088b2022edb474915d9f69a803d6449d5fdb4c303041f60ac4aefcc208bb'
+readonly ANACONDA_INSTALLER='Anaconda3-2020.07-Linux-x86_64.sh'
+readonly ANACONDA_HASH='38ce717758b95b3bd0b1797cc6ccfb76f29a90c25bdfa50ee45f11e583edfdbf'
 
 #############
 # Functions #
