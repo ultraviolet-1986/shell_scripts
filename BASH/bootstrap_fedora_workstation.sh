@@ -7,41 +7,47 @@
 # Shell Scripts: A collection of shell scripts in various languages.
 # Copyright (C) 2020 William Willis Whinn
 
-# This program is free software: you can redistribute it and/or modify it under the terms of the GNU
-# General Public License as published by the Free Software Foundation, either version 3 of the
-# License, or (at your option) any later version.
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 
-# This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
-# even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
-# General Public License for more details.
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
 
-# You should have received a copy of the GNU General Public License along with this program. If not,
-# see <http://www.gnu.org/licenses/>.
+# You should have received a copy of the GNU General Public License
+# along with this program. If not, see <http:#www.gnu.org/licenses/>.
 
 ###############
 # Description #
 ###############
 
-# This script is intended to bootstrap a new Fedora Workstation system autonomously without
-# requiring user-input.
+# This script is intended to bootstrap a new Fedora Workstation system
+# autonomously without requiring user-input.
 
 #########
 # Notes #
 #########
 
-# - It is considered bad practise to include 'sudo' commands within a script.
+# - It is considered bad practise to include 'sudo' commands within a
+#   script.
 # - Script may be run with `sudo bash fedora_bootstrap_sudo.sh`.
 # - Please read and configure this script before executing.
-# - Please ensure you understand what this script is doing before execution.
-# - This script is intended to be ran only once after installation has been completed.
-# - The system will require a reboot once the bootstrapping process has completed.
+# - Please ensure you understand what this script is doing before
+#   execution.
+# - This script is intended to be ran only once after installation has
+#   been completed.
+# - The system will require a reboot once the bootstrapping process has
+#   completed.
 # - This script assumes an active Internet connection is present.
 
 #############
 # Functions #
 #############
 
-# DNF SOFTWARE CONFIGURATION #######################################################################
+# DNF SOFTWARE CONFIGURATION
 
 remove_unused_software() {
   sudo dnf remove -y \
@@ -66,7 +72,7 @@ perform_system_update() {
   return 0
 }
 
-# DNF REPOSITORY SOFTWARE ##########################################################################
+# DNF REPOSITORY SOFTWARE
 
 install_repository_rpmfusion() {
   local rel="$(rpm -E %fedora)"
@@ -147,7 +153,7 @@ install_preferred_software() {
   return 0
 }
 
-# DNF DEVELOPMENT SOFTWARE #########################################################################
+# DNF DEVELOPMENT
 
 install_rstudio() {
   # Install R and RStudio with dependencies for building packages.
@@ -184,7 +190,7 @@ install_ruby() {
   return 0
 }
 
-# DNF VIRTUALISATION SOFTWARE ######################################################################
+# DNF VIRTUALISATION SOFTWARE
 
 install_oracle_virtualbox() {
   sudo wget \
@@ -199,7 +205,7 @@ install_oracle_virtualbox() {
   return 0
 }
 
-# DNF DRIVER SOFTWARE ##############################################################################
+# DNF DRIVER SOFTWARE
 
 install_intel_drivers() {
   sudo dnf install -y \
@@ -211,7 +217,7 @@ install_intel_drivers() {
   return 0
 }
 
-# UNIVERSAL SOFTWARE CONFIGURATION #################################################################
+# UNIVERSAL SOFTWARE CONFIGURATION
 
 # FLATPAK
 
@@ -227,10 +233,10 @@ configure_flathub() {
 configure_snapd() {
   sudo dnf install -y snapd
 
-  # Create symlink to allow classic-confinement applications
+  # Create symlink to allow classic-confinement applications.
   sudo ln -s '/var/lib/snapd/snap' '/snap'
 
-  # Enable 'snapd' service and start immediately
+  # Enable 'snapd' service and start immediately.
   sudo systemctl enable snapd
   sudo systemctl start snapd
 
@@ -238,7 +244,7 @@ configure_snapd() {
   return 0
 }
 
-# UPDATE CLAMAV ####################################################################################
+# UPDATE CLAMAV
 
 update_clamav_database() {
   sudo freshclam
@@ -251,12 +257,12 @@ update_clamav_database() {
 # Kickstart #
 #############
 
-# DNF SOFTWARE CONFIGURATION #######################################################################
+# DNF SOFTWARE CONFIGURATION
 
 remove_unused_software
 perform_system_update
 
-# DNF REPOSITORY SOFTWARE ##########################################################################
+# DNF REPOSITORY SOFTWARE
 
 install_repository_rpmfusion
 install_visual_studio_code
@@ -265,20 +271,20 @@ install_skype
 
 install_preferred_software
 
-# DNF DEVELOPMENT SOFTWARE #########################################################################
+# DNF DEVELOPMENT SOFTWARE
 
 install_rstudio
 # install_ruby
 
-# DNF VIRTUALISATION SOFTWARE ######################################################################
+# DNF VIRTUALISATION SOFTWARE
 
 # install_oracle_virtualbox
 
-# DNF DRIVER SOFTWARE ##############################################################################
+# DNF DRIVER SOFTWARE
 
 # install_intel_drivers # Comment for AMD-based systems.
 
-# UNIVERSAL SOFTWARE CONFIGURATION #################################################################
+# UNIVERSAL SOFTWARE CONFIGURATION
 
 # FLATPAK
 configure_flathub
@@ -286,7 +292,7 @@ configure_flathub
 # SNAP
 configure_snapd
 
-# UPDATE CLAMAV ####################################################################################
+# UPDATE CLAMAV
 
 update_clamav_database
 
