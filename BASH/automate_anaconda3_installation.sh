@@ -26,7 +26,7 @@
 
 # This script is intended to download, install, and configure the
 # Anaconda 3 Python distribution without requiring user input. Current
-# version: 2020.02.
+# version: 2020.07.
 
 #########
 # Notes #
