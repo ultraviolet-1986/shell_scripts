@@ -149,7 +149,7 @@ update_system_software() {
   echo -e "${YELLOW}Note: Updating Flatpak System Software${RESET}\\n"
   flatpak update
 
-  echo -e "\\n${GREEN}Success: Process Complete. Please Reboot and select Option 2.${RESET}\\n"
+  echo -e "\\n${GREEN}Success: Please Reboot and select Option 2.${RESET}\\n"
   return 0
 }
 
@@ -210,7 +210,7 @@ install_software_repositories() {
     "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${rel}.noarch.rpm"
   echo
 
-  echo -e "\\n${GREEN}Success: Process Complete. Please Reboot and select Option 3.${RESET}\\n"
+  echo -e "\\n${GREEN}Success: Please Reboot and select Option 3.${RESET}\\n"
   return 0
 }
 
@@ -247,7 +247,7 @@ configure_preferred_software() {
     vim \
     youtube-dl
 
-  echo -e "\\n${GREEN}Success: Process Complete. Please Reboot and select Option 4.${RESET}\\n"
+  echo -e "\\n${GREEN}Success: Please Reboot and select Option 4.${RESET}\\n"
   return 0
 }
 
