@@ -50,6 +50,8 @@ readonly RESET='\e[0m'
 # Functions #
 #############
 
+# Functions > Prerequisites
+
 test_network_connection() {
   if ( ping -c 1 1.1.1.1 ) &> /dev/null ; then
     return 0
@@ -57,6 +59,8 @@ test_network_connection() {
     return 1
   fi
 }
+
+# Functions > Main Menu
 
 display_main_menu() {
   # Local Variables > Executable Paths
