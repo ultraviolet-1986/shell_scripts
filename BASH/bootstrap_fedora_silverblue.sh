@@ -35,7 +35,7 @@
 # Global Variables > Script Metadata
 
 readonly SCRIPT_URL='https://github.com/ultraviolet-1986/shell_scripts'
-readonly SCRIPT_VERSION='0.0.1'
+readonly SCRIPT_VERSION='0.0.2'
 
 # Global Variables > Text Formatting
 
@@ -139,10 +139,15 @@ display_main_menu() {
 update_system_software() {
   clear
 
-  echo -e "${YELLOW}Note: Updating System Software${RESET}\\n"
+  # Update RPM software.
+  echo -e "${YELLOW}Note: Updating RPM System Software${RESET}\\n"
   rpm-ostree cancel &&
   rpm-ostree refresh-md &&
   rpm-ostree upgrade
+
+  # Update Flatpak softare.
+  echo -e "${YELLOW}Note: Updating Flatpak System Software${RESET}\\n"
+  flatpak update
 
   echo -e "\\n${GREEN}Success: Process Complete. Please Reboot and select Option 2.${RESET}\\n"
   return 0
@@ -214,53 +219,23 @@ install_software_repositories() {
 configure_preferred_software() {
   clear
 
-  # Remove Flatpak Software.
-
-  echo -e "${YELLOW}Note: Removing Flatpak software to favour DNF equivalent.${RESET}\\n"
-
-  flatpak uninstall -y org.gnome.Calculator
-  flatpak uninstall -y org.gnome.Characters
-  flatpak uninstall -y org.gnome.Evince
-  flatpak uninstall -y org.gnome.FileRoller
-  flatpak uninstall -y org.gnome.Logs
-  flatpak uninstall -y org.gnome.Screenshot
-  flatpak uninstall -y org.gnome.clocks
-  flatpak uninstall -y org.gnome.eog
-  flatpak uninstall -y org.gnome.font-viewer
-
-  # Install DNF Software.
-
-  echo -e "${YELLOW}Note: Installing DNF software from sources configured in Option 2.${RESET}\\n"
-
+  # Install RPM Software.
+  echo -e "${YELLOW}Note: Installing RPM software from sources configured in Option 2.${RESET}\\n"
   rpm-ostree install \
-    automake \
-    baobab \
     clamav \
     clamav-update \
     code \
-    eog \
-    evince \
     evolution \
     exfat-utils \
     ffmpeg \
-    file-roller \
     fuse-exfat \
     gcc \
     gcc-c++ \
-    gdb \
     gedit \
     genisoimage \
-    gnome-calculator \
-    gnome-characters \
-    gnome-clocks \
-    gnome-font-viewer \
-    gnome-logs \
-    gnome-screenshot \
     gnome-tweaks \
-    google-chrome-stable \
     java-11-openjdk-headless \
     langpacks-en \
-    make \
     mpv \
     ruby \
     ruby-devel \
