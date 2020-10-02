@@ -110,6 +110,15 @@ install_visual_studio_code() {
   return 0
 }
 
+install_microsoft_fonts() {
+  local url='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
+  local filename='msttcore-fonts-installer-2.6-1.noarch.rpm'
+  sudo dnf install -y "${url}/${filename}"
+
+  echo
+  return 0
+}
+
 install_skype() {
   sudo dnf install -y 'https://repo.skype.com/latest/skypeforlinux-64.rpm'
 
@@ -266,6 +275,7 @@ perform_system_update
 
 install_repository_rpmfusion
 install_visual_studio_code
+install_microsoft_fonts
 install_skype
 # install_google_chrome
 
