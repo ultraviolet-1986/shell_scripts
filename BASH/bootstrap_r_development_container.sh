@@ -56,6 +56,7 @@ bootstrap_r_development_container()
       'libcanberra-gtk3' \
       'libcurl-devel' \
       'liberation-fonts' \
+      'libgfortran' \
       'libjpeg-turbo-devel' \
       'libsodium-devel' \
       'libxml2-devel' \
