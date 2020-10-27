@@ -283,7 +283,7 @@ install_preferred_software
 
 # DNF DEVELOPMENT SOFTWARE
 
-install_rstudio
+# install_rstudio
 # install_ruby
 
 # DNF VIRTUALISATION SOFTWARE
@@ -292,7 +292,7 @@ install_rstudio
 
 # DNF DRIVER SOFTWARE
 
-# install_intel_drivers # Comment for AMD-based systems.
+install_intel_drivers # Comment for AMD-based systems.
 
 # UNIVERSAL SOFTWARE CONFIGURATION
 
