@@ -41,6 +41,8 @@
 
 bootstrap_r_development_container()
 {
+  local centos_mirror='http://mirror.centos.org/centos/7/os/x86_64/Packages'
+
   if ( command -v 'toolbox' > /dev/null 2>&1 ) && ( ping -c 1 1.1.1.1 ) &> /dev/null ; then
     # Create a Fedora Toolbox named 'rdev'.
     toolbox create --container rdev
@@ -51,6 +53,12 @@ bootstrap_r_development_container()
     # Install R development software into the 'rdev' container.
     toolbox run --container rdev 'sudo' 'dnf' 'install' '-y' \
       'adobe-source-code-pro-fonts' \
+      'adwaita-gtk2-theme' \
+      'adwaita-icon-theme' \
+      'adwaita-qt' \
+      'adwaita-qt4' \
+      'adwaita-qt5' \
+      'adwaita-qt-common' \
       'cairo-devel' \
       'compat-openssl10' \
       'libcanberra-gtk3' \
@@ -73,7 +81,8 @@ bootstrap_r_development_container()
       'R-Rcpp' \
       'R-Rcpp-devel' \
       'rstudio-desktop' \
-      'udunits2-devel'
+      'udunits2-devel' \
+      "$centos_mirror/libgfortran4-8.3.1-2.1.1.el7.x86_64.rpm" # Fedora Compatible.
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
