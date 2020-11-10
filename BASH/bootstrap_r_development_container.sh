@@ -28,12 +28,14 @@
 #   machine.
 # - This script requires Fedora Toolbox to be installed and an active
 #   Internet connection.
-# - This script pings the CloudFlare DNS to check for an active Internet
-#   connection.
-# - Additional packages are installed which are for building R packages
-#   from source.
+# - This script pings the CloudFlare DNS to check for an active
+#   Internet connection.
 # - RStudio can be started within this container by using the `rstudio`
 #   command.
+# - If you are using the Anaconda Python distribution, please use the
+#   command `conda deactivate` when entering the container as this WILL
+#   cause problems with building R packages from source. This container
+#   should have all of the neccesary libraries installed by default.
 
 #############
 # Functions #
@@ -81,8 +83,7 @@ bootstrap_r_development_container()
       'R-Rcpp' \
       'R-Rcpp-devel' \
       'rstudio-desktop' \
-      'udunits2-devel' \
-      "$centos_mirror/libgfortran4-8.3.1-2.1.1.el7.x86_64.rpm" # Fedora Compatible.
+      'udunits2-devel'
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
