@@ -55,32 +55,39 @@ bootstrap_r_development_container()
       'adobe-source-code-pro-fonts' \
       'adwaita-gtk2-theme' \
       'adwaita-icon-theme' \
+      'adwaita-qt-common' \
       'adwaita-qt' \
       'adwaita-qt4' \
       'adwaita-qt5' \
-      'adwaita-qt-common' \
       'cairo-devel' \
       'compat-openssl10' \
+      'fira-code-fonts' \
+      'gnu-free-mono-fonts' \
+      'ibm-plex-mono-fonts' \
       'libcanberra-gtk3' \
       'libcurl-devel' \
       'liberation-fonts' \
+      'liberation-mono-fonts' \
       'libgfortran' \
       'libjpeg-turbo-devel' \
       'libsodium-devel' \
       'libxml2-devel' \
+      'mozilla-fira-mono-fonts' \
       'openssl-devel' \
       'qgnomeplatform' \
-      'qt5-qtbase' \
       'qt5-qtbase-common' \
       'qt5-qtbase-gui' \
+      'qt5-qtbase' \
       'qt5-qtdeclarative' \
       'qt5-qtwayland' \
       'qt5-qtx11extras' \
       'qt5-qtxmlpatterns' \
-      'R' \
-      'R-Rcpp' \
       'R-Rcpp-devel' \
+      'R-Rcpp' \
+      'R' \
       'rstudio-desktop' \
+      'texlive-inconsolata' \
+      'texlive-typewriter' \
       'udunits2-devel'
 
     # Stop and exit the container if Toolbox has not stopped it.
