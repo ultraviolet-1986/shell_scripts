@@ -43,8 +43,6 @@
 
 bootstrap_r_development_container()
 {
-  local centos_mirror='http://mirror.centos.org/centos/7/os/x86_64/Packages'
-
   if ( command -v 'toolbox' > /dev/null 2>&1 ) && ( ping -c 1 1.1.1.1 ) &> /dev/null ; then
     # Create a Fedora Toolbox named 'rdev'.
     toolbox create --container rdev
