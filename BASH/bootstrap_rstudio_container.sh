@@ -18,7 +18,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http:#www.gnu.org/licenses/>.
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #########
 # Notes #
@@ -41,7 +41,7 @@
 # Functions #
 #############
 
-bootstrap_r_development_container()
+bootstrap_rstudio_container()
 {
   if ( command -v 'toolbox' > /dev/null 2>&1 ) && ( ping -c 1 1.1.1.1 ) &> /dev/null ; then
     # Create a Fedora Toolbox named 'rdev'.
@@ -114,6 +114,6 @@ bootstrap_r_development_container()
 # Kickstart #
 #############
 
-bootstrap_r_development_container
+bootstrap_rstudio_container
 
 # End of File.

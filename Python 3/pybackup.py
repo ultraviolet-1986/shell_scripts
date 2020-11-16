@@ -21,7 +21,7 @@
 # GNU General Public License for more details.
 
 # You should have received a copy of the GNU General Public License
-# along with this program. If not, see <http:#www.gnu.org/licenses/>.
+# along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 ###########
 # Imports #
@@ -85,7 +85,8 @@ def clear():
 def backup_dconf_settings():
     """Create a file containing common GTK desktop settings."""
     dconf_dump_file = 'dconf_dump.txt'
-    dconf_dump_command = 'dconf dump / > {0}/{1}'.format(BACKUP, dconf_dump_file)
+    dconf_dump_command = 'dconf dump / > {0}/{1}'.format(BACKUP,
+                                                         dconf_dump_file)
 
     if DESKTOP != 'KDE':
         subprocess.run(dconf_dump_command, shell=True, check=True)
