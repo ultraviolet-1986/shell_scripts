@@ -25,7 +25,7 @@
 #########
 
 # - This script works in conjunction with the shell script named
-#   'bootstrap_r_development_container.sh'.
+#   'bootstrap_rstudio_container.sh'.
 # - Open and run this file using R Studio to install some useful data
 #   science libraries.
 # - If you are using Anaconda/Miniconda, please disable your 'conda'
