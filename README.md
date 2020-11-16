@@ -46,7 +46,7 @@ without requiring further user authentication over time. It is
 before running this script; it modifies system software and is intended to be
 ran **only once**: when Fedora Workstation has been newly installed.
 
-### `bootstrap_r_development_container.sh`
+### `bootstrap_rstudio_container.sh`
 
 This script uses [Toolbox](https://tinyurl.com/y4t5ezo7) to create a complete R
 development environment separate from the main system. Running this script will
