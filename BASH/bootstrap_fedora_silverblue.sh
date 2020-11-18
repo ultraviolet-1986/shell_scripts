@@ -164,6 +164,7 @@ install_software_repositories() {
   local chrome_repo_file='/etc/yum.repos.d/google-chrome.repo'
   local code_repo_file='/etc/yum.repos.d/vscode.repo'
   local skype_repo_file='/etc/yum.repos.d/skype-stable.repo'
+  local teams_repo_file='/etc/yum.repos.d/teams.repo'
 
   # Local Variables > Get Fedora Version
   local rel
@@ -193,6 +194,17 @@ install_software_repositories() {
   echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
   echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
   echo 'gpgkey=https://repo.skype.com/data/SKYPE-GPG-KEY' | sudo tee -a "$skype_repo_file"
+  echo
+
+  # Teams Repository
+  echo '[teams]' | sudo tee "$teams_repo_file" &&
+  echo 'name=teams' | sudo tee -a "$teams_repo_file" &&
+  echo 'baseurl=https://packages.microsoft.com/yumrepos/ms-teams' | \
+    sudo tee -a "$teams_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$teams_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$teams_repo_file" &&
+  echo 'gpgkey=https://packages.microsoft.com/keys/microsoft.asc' | \
+    sudo tee -a "$teams_repo_file" &&
   echo
 
   # Visual Studio Code Repository
@@ -247,6 +259,7 @@ configure_preferred_software() {
     rubygem-rake \
     simple-scan \
     skypeforlinux \
+    teams \
     transmission \
     vim \
     youtube-dl
