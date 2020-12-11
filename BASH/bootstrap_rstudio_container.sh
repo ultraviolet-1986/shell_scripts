@@ -69,6 +69,7 @@ bootstrap_rstudio_container()
       'liberation-fonts' \
       'liberation-mono-fonts' \
       'libgfortran' \
+      'libgit2-devel' \
       'libjpeg-turbo-devel' \
       'libsodium-devel' \
       'libxml2-devel' \
