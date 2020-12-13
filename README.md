@@ -9,6 +9,7 @@ A collection of shell scripts in various languages.
   - [bootstrap_fedora_silverblue.sh](#bootstrap_fedora_silverblue.sh)
   - [bootstrap_fedora_workstation.sh](#bootstrap_fedora_workstation.sh)
   - [bootstrap_rstudio_container.sh](#bootstrap_rstudio_container.sh)
+  - [bootstrap_megax_container.sh](#bootstrap_megax_container.sh)
 - [Python 3 Scripts](#python-3-scripts)
   - [pybackup.py](#pybackup.py)
   - [pygpg.py](#pygpg.py)
@@ -84,6 +85,17 @@ the container by using the following command:
 ```bash
 toolbox enter rdev
 ```
+
+### `bootstrap_megax_container.sh`
+
+This is the same as `bootstrap_rstudio_container.sh`, except this container may
+be accessed using the following command:
+
+```bash
+toolbox enter megax
+```
+
+Then MEGA may be started using the `megax` command.
 
 ## Python 3 Scripts
 
