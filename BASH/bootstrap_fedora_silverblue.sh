@@ -26,7 +26,7 @@
 
 # This script is intended to help configure a fresh Fedora Silverblue
 # installation. It will require a reboot between options and each option
-# should be installed sequentially.
+# should be followed sequentially.
 
 #############
 # Variables #
