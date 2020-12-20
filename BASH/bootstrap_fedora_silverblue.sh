@@ -185,16 +185,16 @@ install_software_repositories() {
   echo 'gpgkey=https://dl.google.com/linux/linux_signing_key.pub' | sudo tee -a "$chrome_repo_file"
   echo
 
-  # Skype Repository
-  echo -e "${YELLOW}Installing Skype Repository${RESET}"
+  # # Skype Repository
+  # echo -e "${YELLOW}Installing Skype Repository${RESET}"
 
-  echo '[skype-stable]' | sudo tee "$skype_repo_file" &&
-  echo 'name=skype (stable)' | sudo tee -a "$skype_repo_file" &&
-  echo 'baseurl=https://repo.skype.com/rpm/stable' | sudo tee -a "$skype_repo_file" &&
-  echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
-  echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
-  echo 'gpgkey=https://repo.skype.com/data/SKYPE-GPG-KEY' | sudo tee -a "$skype_repo_file"
-  echo
+  # echo '[skype-stable]' | sudo tee "$skype_repo_file" &&
+  # echo 'name=skype (stable)' | sudo tee -a "$skype_repo_file" &&
+  # echo 'baseurl=https://repo.skype.com/rpm/stable' | sudo tee -a "$skype_repo_file" &&
+  # echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
+  # echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
+  # echo 'gpgkey=https://repo.skype.com/data/SKYPE-GPG-KEY' | sudo tee -a "$skype_repo_file"
+  # echo
 
   # Teams Repository
   echo '[teams]' | sudo tee "$teams_repo_file" &&
@@ -226,6 +226,14 @@ install_software_repositories() {
     "https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-${rel}.noarch.rpm"
   echo
 
+  # Update Flatpak software and install Flathub repository.
+  echo -e "${YELLOW}Note: Updating Flatpak software${RESET}\\n"
+  flatpak update
+  echo
+
+  echo -e "${YELLOW}Note: Installing Flathub remote for Flatpak${RESET}\\n"
+  flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
+
   echo -e "\\n${GREEN}Success: Please Reboot and select Option 3.${RESET}\\n"
   return 0
 }
@@ -234,6 +242,12 @@ install_software_repositories() {
 
 configure_preferred_software() {
   clear
+
+  # Install Flatpak Software.
+  flatpak install flathub -y "com.transmissionbt.Transmission"
+  flatpak install flathub -y "org.gimp.GIMP"
+  flatpak install flathub -y "org.gnome.Boxes"
+  flatpak install flathub -y "org.libreoffice.LibreOffice"
 
   # Install RPM Software.
   echo -e "${YELLOW}Note: Installing RPM software from sources configured in Option 2.${RESET}\\n"
@@ -246,23 +260,17 @@ configure_preferred_software() {
     ffmpeg \
     fuse-exfat \
     gcc \
-    gcc-c++ \
-    gedit \
+    'gcc-c++' \
     genisoimage \
     gnome-tweaks \
+    google-chrome-stable \
     java-11-openjdk-headless \
-    langpacks-en \
     mpv \
-    ruby \
-    ruby-devel \
-    rubygem-bundler \
-    rubygem-rake \
     simple-scan \
-    skypeforlinux \
     teams \
-    transmission \
     vim \
-    youtube-dl
+    youtube-dl \
+    'https://us02web.zoom.us/client/latest/zoom_x86_64.rpm' # Install Zoom.
 
   echo -e "\\n${GREEN}Success: Please Reboot and select Option 4.${RESET}\\n"
   return 0
