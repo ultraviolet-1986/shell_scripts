@@ -243,7 +243,7 @@ configure_preferred_software() {
   clear
 
   # Install Flatpak Software.
-  echo -e "${YELLOW}Note: Installing preferred Flatpak software from Flathub Remote..${RESET}\\n"
+  echo -e "${YELLOW}Note: Installing preferred Flatpak software from Flathub Remote.${RESET}\\n"
   flatpak install flathub -y "com.transmissionbt.Transmission"
   flatpak install flathub -y "org.gimp.GIMP"
   flatpak install flathub -y "org.gnome.Boxes"
