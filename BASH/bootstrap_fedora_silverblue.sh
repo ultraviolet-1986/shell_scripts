@@ -35,7 +35,7 @@
 # Global Variables > Script Metadata
 
 readonly SCRIPT_URL='https://github.com/ultraviolet-1986/shell_scripts'
-readonly SCRIPT_VERSION='0.0.2'
+readonly SCRIPT_VERSION='0.0.3'
 
 # Global Variables > Text Formatting
 
@@ -144,13 +144,13 @@ update_system_software() {
   clear
 
   # Update RPM software.
-  echo -e "${YELLOW}Note: Updating RPM System Software${RESET}\\n"
+  echo -e "${YELLOW}Note: Updating RPM System Software.${RESET}\\n"
   rpm-ostree cancel &&
   rpm-ostree refresh-md &&
   rpm-ostree upgrade
 
   # Update Flatpak softare.
-  echo -e "${YELLOW}Note: Updating Flatpak System Software${RESET}\\n"
+  echo -e "${YELLOW}Note: Updating Flatpak System Software.${RESET}\\n"
   flatpak update
 
   echo -e "\\n${GREEN}Success: Please Reboot and select Option 2.${RESET}\\n"
@@ -171,10 +171,10 @@ install_software_repositories() {
   rel="$(rpm -E %fedora)"
 
   clear
-  echo -e "${YELLOW}Note: Installing Software Repositories${RESET}\\n"
+  echo -e "${YELLOW}Note: Installing Software Repositories.${RESET}\\n"
 
   # Google Chrome Repository
-  echo -e "${YELLOW}Installing Google Chrome Repository${RESET}"
+  echo -e "${YELLOW}Installing Google Chrome Repository.${RESET}"
 
   echo '[google-chrome]' | sudo tee "$chrome_repo_file" &&
   echo 'name=google-chrome' | sudo tee -a "$chrome_repo_file" &&
@@ -186,7 +186,7 @@ install_software_repositories() {
   echo
 
   # # Skype Repository
-  # echo -e "${YELLOW}Installing Skype Repository${RESET}"
+  # echo -e "${YELLOW}Installing Skype Repository.${RESET}"
 
   # echo '[skype-stable]' | sudo tee "$skype_repo_file" &&
   # echo 'name=skype (stable)' | sudo tee -a "$skype_repo_file" &&
@@ -197,6 +197,8 @@ install_software_repositories() {
   # echo
 
   # Teams Repository
+  echo -e "${YELLOW}Installing Microsoft Teams Repository.${RESET}"
+
   echo '[teams]' | sudo tee "$teams_repo_file" &&
   echo 'name=teams' | sudo tee -a "$teams_repo_file" &&
   echo 'baseurl=https://packages.microsoft.com/yumrepos/ms-teams' | \
@@ -208,7 +210,7 @@ install_software_repositories() {
   echo
 
   # Visual Studio Code Repository
-  echo -e "${YELLOW}Installing Visual Studio Code Repository${RESET}"
+  echo -e "${YELLOW}Installing Visual Studio Code Repository.${RESET}"
 
   echo '[code]' | sudo tee "$code_repo_file" &&
   echo 'name=Visual Studio Code' | sudo tee -a "$code_repo_file" &&
@@ -219,7 +221,7 @@ install_software_repositories() {
   echo
 
   # RPMFusion Repository
-  echo -e "${YELLOW}Installing RPMFusion Repository${RESET}"
+  echo -e "${YELLOW}Installing RPMFusion Repository.${RESET}"
 
   rpm-ostree install \
     "https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-${rel}.noarch.rpm" \
@@ -227,13 +229,10 @@ install_software_repositories() {
   echo
 
   # Update Flatpak software and install Flathub repository.
-  echo -e "${YELLOW}Note: Updating Flatpak software${RESET}\\n"
-  flatpak update
-  echo
-
   echo -e "${YELLOW}Note: Installing Flathub remote for Flatpak${RESET}\\n"
   flatpak remote-add --if-not-exists flathub "https://flathub.org/repo/flathub.flatpakrepo"
 
+  # Prompt user for reboot before continuing.
   echo -e "\\n${GREEN}Success: Please Reboot and select Option 3.${RESET}\\n"
   return 0
 }
@@ -244,10 +243,12 @@ configure_preferred_software() {
   clear
 
   # Install Flatpak Software.
+  echo -e "${YELLOW}Note: Installing preferred Flatpak software from Flathub Remote..${RESET}\\n"
   flatpak install flathub -y "com.transmissionbt.Transmission"
   flatpak install flathub -y "org.gimp.GIMP"
   flatpak install flathub -y "org.gnome.Boxes"
   flatpak install flathub -y "org.libreoffice.LibreOffice"
+  echo
 
   # Install RPM Software.
   echo -e "${YELLOW}Note: Installing RPM software from sources configured in Option 2.${RESET}\\n"
