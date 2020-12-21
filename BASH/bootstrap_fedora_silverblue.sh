@@ -145,9 +145,16 @@ update_system_software() {
 
   # Update RPM software.
   echo -e "${YELLOW}Note: Updating RPM System Software.${RESET}\\n"
-  rpm-ostree cancel &&
   rpm-ostree refresh-md &&
   rpm-ostree upgrade
+  
+  # Remove unused Flatpak software.
+  flatpak uninstall -y org.gnome.Calendar
+  flatpak uninstall -y org.gnome.Contacts
+  flatpak uninstall -y org.gnome.Maps
+  flatpak uninstall -y org.gnome.Weather
+  
+  flatpak uninstall --unused
 
   # Update Flatpak softare.
   echo -e "${YELLOW}Note: Updating Flatpak System Software.${RESET}\\n"
