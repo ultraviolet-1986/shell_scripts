@@ -68,7 +68,7 @@
 
 # NOTE Assumes site and RPM are secure. Use at your own discretion.
 readonly MEGAX_URL='https://www.megasoftware.net/do_force_download'
-readonly MEGAX_RPM="${MEGAX_URL}/megax-10.1.8-1.x86_64.rpm"
+readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.2-1.x86_64.rpm"
 
 #############
 # Functions #
