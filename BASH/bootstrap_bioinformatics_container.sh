@@ -58,6 +58,7 @@
 # | Software Name | Command |
 # |---------------|---------|
 # | MegaX         | mega    |
+# | MODELLER      | mod9.25 |
 # | PyMOL         | pymol   |
 # | R             | R       |
 # | RStudio       | rstudio |
@@ -68,11 +69,17 @@
 
 # NOTE Assumes site(s) and RPM are secure. Use at your own discretion.
 
+# Microsoft Core Fonts
 readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
 readonly FONT_RPM="${FONT_URL}/msttcore-fonts-installer-2.6-1.noarch.rpm"
 
+# MEGAX
 readonly MEGAX_URL='https://www.megasoftware.net/do_force_download'
 readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.2-1.x86_64.rpm"
+
+# MODELLER
+readonly MODELLER_URL='https://salilab.org/modeller/9.25'
+readonly MODELLER_RPM="${MODELLER_URL}/modeller-9.25-1.x86_64.rpm"
 
 #############
 # Functions #
@@ -134,7 +141,8 @@ bootstrap_bioinformatics_container() {
       texlive-typewriter \
       udunits2-devel \
       "$FONT_RPM" \
-      "$MEGAX_RPM"
+      "$MEGAX_RPM" \
+      "$MODELLER_RPM"
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
