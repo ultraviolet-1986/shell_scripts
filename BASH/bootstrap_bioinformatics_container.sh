@@ -66,7 +66,11 @@
 # Variables #
 #############
 
-# NOTE Assumes site and RPM are secure. Use at your own discretion.
+# NOTE Assumes site(s) and RPM are secure. Use at your own discretion.
+
+readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
+readonly FONT_RPM="${FONT_URL}/msttcore-fonts-installer-2.6-1.noarch.rpm"
+
 readonly MEGAX_URL='https://www.megasoftware.net/do_force_download'
 readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.2-1.x86_64.rpm"
 
@@ -129,6 +133,7 @@ bootstrap_bioinformatics_container() {
       texlive-inconsolata \
       texlive-typewriter \
       udunits2-devel \
+      "$FONT_RPM" \
       "$MEGAX_RPM"
 
     # Stop and exit the container if Toolbox has not stopped it.

@@ -42,6 +42,7 @@
 #############
 
 readonly MEGAX_RPM='https://www.megasoftware.net/do_force_download/megax-10.1.8-1.x86_64.rpm'
+readonly MODELLER_RPM='https://salilab.org/modeller/9.25/modeller-9.25-1.x86_64.rpm'
 
 #############
 # Functions #
@@ -94,7 +95,8 @@ bootstrap_megax_container()
       texlive-inconsolata \
       texlive-typewriter \
       udunits2-devel \
-      "$MEGAX_RPM"
+      "$MEGAX_RPM" \
+      "$MODELLER_RPM"
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1

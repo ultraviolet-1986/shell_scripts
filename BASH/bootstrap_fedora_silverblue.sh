@@ -170,7 +170,7 @@ install_software_repositories() {
   # Local Variables > Repository File Paths
   local chrome_repo_file='/etc/yum.repos.d/google-chrome.repo'
   local code_repo_file='/etc/yum.repos.d/vscode.repo'
-  local skype_repo_file='/etc/yum.repos.d/skype-stable.repo'
+  # local skype_repo_file='/etc/yum.repos.d/skype-stable.repo'
   local teams_repo_file='/etc/yum.repos.d/teams.repo'
 
   # Local Variables > Get Fedora Version
