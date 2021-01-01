@@ -25,7 +25,7 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.1
+# Version: 0.0.2
 # Date:    27th December 2020
 
 #########
