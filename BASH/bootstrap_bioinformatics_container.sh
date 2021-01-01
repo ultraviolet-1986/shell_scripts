@@ -85,6 +85,8 @@
 # | PSI-BLAST     | psiblast   |
 # | rpBLAST       | rpblast    |
 # | rpstBLASTn    | rpstblastn |
+# | tBLASTn       | tblastn    |
+# | tBLASTx       | tblastx    |
 
 #############
 # Variables #
