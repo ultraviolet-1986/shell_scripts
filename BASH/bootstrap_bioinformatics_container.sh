@@ -46,6 +46,22 @@
 #   used and are expected to do so in accordance with the terms of the
 #   software package(s) license.
 
+#############
+# Resources #
+#############
+
+# - NCBI BLAST Software and Documentation
+#   https://tinyurl.com/y9nf9q2g
+
+# - NCBI BLAST+ Documentation
+#   https://tinyurl.com/ya3rnwpc
+
+# - NCBI BLAST Database Documentation
+#   https://tinyurl.com/y73gbneq
+
+# - NCBI BLAST Databases
+#   https://ftp.ncbi.nlm.nih.gov/blast/db/
+
 ############
 # Commands #
 ############
@@ -55,19 +71,38 @@
 # software repositories. Because of this, the user is advised to
 # continue at their own discretion.
 
-# | Software Name | Command |
-# |---------------|---------|
-# | MegaX         | mega    |
-# | MODELLER      | mod9.25 |
-# | PyMOL         | pymol   |
-# | R             | R       |
-# | RStudio       | rstudio |
+# | Software Name | Command    |
+# |---------------|------------|
+# | MegaX         | mega       |
+# | MODELLER      | mod9.25    |
+# | PyMOL         | pymol      |
+# | R             | R          |
+# | RStudio       | rstudio    |
+# | BLASTn        | blastn     |
+# | BLASTp        | blastp     |
+# | BLASTx        | blastx     |
+# | DeltaBLAST    | deltablast |
+# | PSI-BLAST     | psiblast   |
+# | rpBLAST       | rpblast    |
+# | rpstBLASTn    | rpstblastn |
 
 #############
 # Variables #
 #############
 
 # NOTE Assumes site(s) and RPM are secure. Use at your own discretion.
+
+# NCBI BLAST+
+readonly BLAST_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST'
+readonly BLAST_RPM="${BLAST_URL}/ncbi-blast-2.11.0+-1.x86_64.rpm"
+
+# NCBI Magic-BLAST
+readonly MAGIC_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/magicblast/LATEST'
+readonly MAGIC_RPM="${MAGIC_URL}/ncbi-magicblast-1.5.0-1.x86_64.rpm"
+
+# NCBI IgBLAST
+readonly IG_URL='https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST'
+readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.0-1.x86_64.rpm"
 
 # Microsoft Core Fonts
 readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
@@ -124,6 +159,7 @@ bootstrap_bioinformatics_container() {
       libxml2-devel \
       mozilla-fira-mono-fonts \
       openssl-devel \
+      perl-CPAN \
       pymol \
       qgnomeplatform \
       qt5-qtbase \
@@ -140,9 +176,15 @@ bootstrap_bioinformatics_container() {
       texlive-inconsolata \
       texlive-typewriter \
       udunits2-devel \
-      "$FONT_RPM" \
-      "$MEGAX_RPM" \
-      "$MODELLER_RPM"
+      "${BLAST_RPM}" \
+      "${MAGIC_RPM}" \
+      "${IG_RPM}" \
+      "${FONT_RPM}" \
+      "${MEGAX_RPM}" \
+      "${MODELLER_RPM}"
+
+    # Install the PERL JSON module for use with BLAST.
+    toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
