@@ -137,20 +137,13 @@ bootstrap_bioinformatics_container() {
     # container.
     toolbox run --container bioinformatics 'sudo' 'dnf' 'install' '-y' \
       adobe-source-code-pro-fonts \
-      adwaita-gtk2-theme \
-      adwaita-icon-theme \
-      adwaita-qt \
-      adwaita-qt* \
-      adwaita-qt4 \
-      adwaita-qt5 \
-      adwaita-qt-common \
-      adwaita*theme* \
+      *adwaita* \
       cairo-devel \
       compat-openssl10 \
       fira-code-fonts \
       gnu-free-mono-fonts \
       ibm-plex-mono-fonts \
-      libcanberra-gtk3 \
+      libcanberra* \
       libcurl-devel \
       liberation-fonts \
       liberation-mono-fonts \
