@@ -153,6 +153,7 @@ bootstrap_bioinformatics_container() {
       libsodium-devel \
       libxml2-devel \
       mozilla-fira-mono-fonts \
+      nano \
       openssl-devel \
       perl-CPAN \
       pymol \
