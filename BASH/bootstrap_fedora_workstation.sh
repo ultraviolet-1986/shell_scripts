@@ -141,10 +141,13 @@ install_preferred_software() {
     exfat-utils \
     ffmpeg \
     fuse-exfat \
+    gcc \
+    gcc-c++ \
     genisoimage \
     git \
     gnome-terminal-nautilus \
     gnome-tweaks \
+    java-11-openjdk-headless
     joystick-support \
     kernel-modules-extra \
     mesa-libGLU \
@@ -153,8 +156,9 @@ install_preferred_software() {
     p7zip \
     spice-vdagent \
     spice-webdavd \
-    timeshift \
     transmission \
+    vim \
+    youtube-dl \
     vlgothic-fonts \
     vlgothic-p-fonts
 
