@@ -91,17 +91,16 @@ install_repository_rpmfusion() {
 }
 
 install_visual_studio_code() {
-  # Import repository key.
-  sudo rpm --import 'https://packages.microsoft.com/keys/microsoft.asc'
-
   local code_repo_file='/etc/yum.repos.d/vscode.repo'
 
   echo '[code]' | sudo tee "$code_repo_file" &&
   echo 'name=Visual Studio Code' | sudo tee -a "$code_repo_file" &&
-  echo 'baseurl=https://packages.microsoft.com/yumrepos/vscode' | sudo tee -a "$code_repo_file" &&
+  echo 'baseurl=https://packages.microsoft.com/yumrepos/vscode' | \
+    sudo tee -a "$code_repo_file" &&
   echo 'enabled=1' | sudo tee -a "$code_repo_file" &&
   echo 'gpgcheck=1' | sudo tee -a "$code_repo_file" &&
-  echo 'gpgkey=https://packages.microsoft.com/keys/microsoft.asc' | sudo tee -a "$code_repo_file"
+  echo 'gpgkey=https://packages.microsoft.com/keys/microsoft.asc' | \
+    sudo tee -a "$code_repo_file"
 
   echo
   sudo dnf install -y code
@@ -119,16 +118,54 @@ install_microsoft_fonts() {
   return 0
 }
 
-install_skype() {
-  sudo dnf install -y 'https://repo.skype.com/latest/skypeforlinux-64.rpm'
+install_microsoft_teams() {
+  local teams_repo_file='/etc/yum.repos.d/teams.repo'
 
+  echo '[teams]' | sudo tee "$teams_repo_file" &&
+  echo 'name=teams' | sudo tee -a "$teams_repo_file" &&
+  echo 'baseurl=https://packages.microsoft.com/yumrepos/ms-teams' | \
+    sudo tee -a "$teams_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$teams_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$teams_repo_file" &&
+  echo 'gpgkey=https://packages.microsoft.com/keys/microsoft.asc' | \
+    sudo tee -a "$teams_repo_file" &&
+  echo
+
+  sudo dnf install -y teams
+  echo
+  return 0
+}
+
+install_skype() {
+  local skype_repo_file='/etc/yum.repos.d/skype-stable.repo'
+
+  echo '[skype-stable]' | sudo tee "$skype_repo_file" &&
+  echo 'name=skype (stable)' | sudo tee -a "$skype_repo_file" &&
+  echo 'baseurl=https://repo.skype.com/rpm/stable' | \
+    sudo tee -a "$skype_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'gpgkey=https://repo.skype.com/data/SKYPE-GPG-KEY' | \
+    sudo tee -a "$skype_repo_file"
+
+  sudo dnf install -y skypeforlinux
   echo
   return 0
 }
 
 install_google_chrome() {
-  sudo dnf install -y 'https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm'
+  local chrome_repo_file='/etc/yum.repos.d/google-chrome.repo'
 
+  echo '[google-chrome]' | sudo tee "$chrome_repo_file" &&
+  echo 'name=google-chrome' | sudo tee -a "$chrome_repo_file" &&
+  echo 'baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64' | \
+    sudo tee -a "$chrome_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'gpgkey=https://dl.google.com/linux/linux_signing_key.pub' | \
+    sudo tee -a "$chrome_repo_file"
+
+  sudo dnf install -y google-chrome-stable
   echo
   return 0
 }
@@ -280,8 +317,9 @@ perform_system_update
 install_repository_rpmfusion
 install_visual_studio_code
 install_microsoft_fonts
-install_skype
-# install_google_chrome
+install_microsoft_teams
+# install_skype
+install_google_chrome
 
 install_preferred_software
 
