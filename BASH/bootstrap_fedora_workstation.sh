@@ -193,6 +193,7 @@ install_preferred_software() {
     p7zip \
     spice-vdagent \
     spice-webdavd \
+    toolbox \
     transmission \
     vim \
     youtube-dl \
