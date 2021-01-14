@@ -366,10 +366,10 @@ install_intel_drivers # Comment for AMD-based systems.
 # UNIVERSAL SOFTWARE CONFIGURATION
 
 # FLATPAK
-configure_flathub
+# configure_flathub
 
 # SNAP
-configure_snapd
+# configure_snapd
 
 # UPDATE CLAMAV
 
