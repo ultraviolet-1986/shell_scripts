@@ -160,8 +160,8 @@ install_google_chrome() {
   echo 'name=google-chrome' | sudo tee -a "$chrome_repo_file" &&
   echo 'baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64' | \
     sudo tee -a "$chrome_repo_file" &&
-  echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
-  echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$chrome_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$chrome_repo_file" &&
   echo 'gpgkey=https://dl.google.com/linux/linux_signing_key.pub' | \
     sudo tee -a "$chrome_repo_file"
 
