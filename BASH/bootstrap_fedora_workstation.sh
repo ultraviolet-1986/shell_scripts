@@ -210,6 +210,7 @@ install_preferred_software() {
     kernel-devel \
     kernel-headers \
     kernel-modules-extra \
+    libreoffice \
     mesa-libGLU \
     mpv \
     nano \
