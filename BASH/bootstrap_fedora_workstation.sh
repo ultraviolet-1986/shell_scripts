@@ -208,6 +208,8 @@ install_preferred_software() {
     gnome-tweaks \
     java-11-openjdk-headless
     joystick-support \
+    kernel-devel \
+    kernel-headers \
     kernel-modules-extra \
     mesa-libGLU \
     mpv \
