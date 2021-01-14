@@ -110,9 +110,7 @@ install_visual_studio_code() {
 }
 
 install_microsoft_fonts() {
-  local url='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
-  local filename='msttcore-fonts-installer-2.6-1.noarch.rpm'
-  sudo dnf install -y "${url}/${filename}"
+  sudo dnf install -y 'https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm'
 
   echo
   return 0
@@ -178,6 +176,7 @@ install_chromium() {
 
 install_sublime_text() {
   local sublime_repo_file='/etc/yum.repos.d/sublime-text.repo'
+
   echo '[sublime-text]' | sudo tee "$sublime_repo_file" &&
   echo 'name=Sublime Text - x86_64 - Stable' | sudo tee -a "$sublime_repo_file" &&
   echo 'baseurl=https://download.sublimetext.com/rpm/stable/x86_64' | \
