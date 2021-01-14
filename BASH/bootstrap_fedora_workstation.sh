@@ -205,7 +205,7 @@ install_preferred_software() {
     git \
     gnome-terminal-nautilus \
     gnome-tweaks \
-    java-11-openjdk-headless
+    java-11-openjdk-headless \
     joystick-support \
     kernel-devel \
     kernel-headers \
