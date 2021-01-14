@@ -346,7 +346,7 @@ install_microsoft_teams
 # install_skype
 # install_google_chrome
 install_chromium
-install_sublime_text
+# install_sublime_text
 
 install_preferred_software
 
@@ -361,7 +361,7 @@ install_ruby
 
 # DNF DRIVER SOFTWARE
 
-install_intel_drivers # Comment for AMD-based systems.
+# install_intel_drivers # Comment for AMD-based systems.
 
 # UNIVERSAL SOFTWARE CONFIGURATION
 
