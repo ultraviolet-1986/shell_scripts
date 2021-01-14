@@ -170,6 +170,28 @@ install_google_chrome() {
   return 0
 }
 
+install_chromium() {
+  sudo dnf install -y chromium
+  echo
+  return 0
+}
+
+install_sublime_text() {
+  local sublime_repo_file='/etc/yum.repos.d/sublime-text.repo'
+  echo '[sublime-text]' | sudo tee "$sublime_repo_file" &&
+  echo 'name=Sublime Text - x86_64 - Stable' | sudo tee -a "$sublime_repo_file" &&
+  echo 'baseurl=https://download.sublimetext.com/rpm/stable/x86_64' | \
+    sudo tee -a "$sublime_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$sublime_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$sublime_repo_file" &&
+  echo 'gpgkey=https://download.sublimetext.com/sublimehq-rpm-pub.gpg' | \
+    sudo tee -a "$sublime_repo_file"
+
+  sudo dnf install -y sublime-text
+  echo
+  return 0
+}
+
 install_preferred_software() {
   sudo dnf install -y \
     clamav \
@@ -320,14 +342,16 @@ install_visual_studio_code
 install_microsoft_fonts
 install_microsoft_teams
 # install_skype
-install_google_chrome
+# install_google_chrome
+install_chromium
+install_sublime_text
 
 install_preferred_software
 
 # DNF DEVELOPMENT SOFTWARE
 
 # install_rstudio
-# install_ruby
+install_ruby
 
 # DNF VIRTUALISATION SOFTWARE
 
