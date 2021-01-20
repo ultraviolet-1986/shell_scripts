@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.3
-# Date:    10th January 2021
+# Version: 0.0.4
+# Date:    20th January 2021
 
 #########
 # Notes #
@@ -45,6 +45,8 @@
 # - In academic work, the user may be required to cite the applications
 #   used and are expected to do so in accordance with the terms of the
 #   software package(s) license.
+# - WINE and Winetricks are included to help run software designed for
+#   the Microsoft Windows platform.
 
 #############
 # Resources #
@@ -61,6 +63,9 @@
 
 # - NCBI BLAST Databases
 #   https://ftp.ncbi.nlm.nih.gov/blast/db/
+
+# - Pajek
+#   http://mrvar.fdv.uni-lj.si/pajek/
 
 ############
 # Commands #
@@ -87,6 +92,8 @@
 # | rpstBLASTn    | rpstblastn |
 # | tBLASTn       | tblastn    |
 # | tBLASTx       | tblastx    |
+# | WINE          | wine       |
+# | Winetricks    | winetricks |
 
 #############
 # Variables #
@@ -172,6 +179,8 @@ bootstrap_bioinformatics_container() {
       texlive-inconsolata \
       texlive-typewriter \
       udunits2-devel \
+      wine \
+      winetricks \
       "${BLAST_RPM}" \
       "${MAGIC_RPM}" \
       "${IG_RPM}" \
