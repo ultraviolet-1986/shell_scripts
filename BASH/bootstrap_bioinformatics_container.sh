@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.4
-# Date:    20th January 2021
+# Version: 0.0.5
+# Date:    21st January 2021
 
 #########
 # Notes #
@@ -94,6 +94,7 @@
 # | tBLASTx       | tblastx    |
 # | WINE          | wine       |
 # | Winetricks    | winetricks |
+# | COPASI        | CopasiUI   |
 
 #############
 # Variables #
@@ -147,6 +148,9 @@ bootstrap_bioinformatics_container() {
       *adwaita* \
       cairo-devel \
       compat-openssl10 \
+      COPASI \
+      COPASI-gui \
+      python3-COPASI \
       fira-code-fonts \
       gnu-free-mono-fonts \
       ibm-plex-mono-fonts \
