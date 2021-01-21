@@ -35,7 +35,7 @@
 # Global Variables > Script Metadata
 
 readonly SCRIPT_URL='https://github.com/ultraviolet-1986/shell_scripts'
-readonly SCRIPT_VERSION='0.0.3'
+readonly SCRIPT_VERSION='0.0.4'
 
 # Global Variables > Text Formatting
 
@@ -147,13 +147,13 @@ update_system_software() {
   echo -e "${YELLOW}Note: Updating RPM System Software.${RESET}\\n"
   rpm-ostree refresh-md &&
   rpm-ostree upgrade
-  
+
   # Remove unused Flatpak software.
   flatpak uninstall -y org.gnome.Calendar
   flatpak uninstall -y org.gnome.Contacts
   flatpak uninstall -y org.gnome.Maps
   flatpak uninstall -y org.gnome.Weather
-  
+
   flatpak uninstall --unused
 
   # Update Flatpak softare.
@@ -273,6 +273,7 @@ configure_preferred_software() {
     gnome-tweaks \
     google-chrome-stable \
     java-11-openjdk-headless \
+    joystick-support \
     mpv \
     simple-scan \
     teams \
