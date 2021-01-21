@@ -78,23 +78,23 @@
 
 # | Software Name | Command    |
 # |---------------|------------|
-# | MegaX         | mega       |
-# | MODELLER      | mod9.25    |
-# | PyMOL         | pymol      |
-# | R             | R          |
-# | RStudio       | rstudio    |
 # | BLASTn        | blastn     |
 # | BLASTp        | blastp     |
 # | BLASTx        | blastx     |
+# | COPASI        | CopasiUI   |
 # | DeltaBLAST    | deltablast |
+# | MegaX         | mega       |
+# | MODELLER      | mod9.25    |
 # | PSI-BLAST     | psiblast   |
+# | PyMOL         | pymol      |
+# | R             | R          |
 # | rpBLAST       | rpblast    |
 # | rpstBLASTn    | rpstblastn |
+# | RStudio       | rstudio    |
 # | tBLASTn       | tblastn    |
 # | tBLASTx       | tblastx    |
 # | WINE          | wine       |
 # | Winetricks    | winetricks |
-# | COPASI        | CopasiUI   |
 
 #############
 # Variables #
