@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.5
-# Date:    21st January 2021
+# Version: 0.0.6
+# Date:    23rd January 2021
 
 #########
 # Notes #
@@ -185,6 +185,7 @@ bootstrap_bioinformatics_container() {
       udunits2-devel \
       wine \
       winetricks \
+      zenity \
       "${BLAST_RPM}" \
       "${MAGIC_RPM}" \
       "${IG_RPM}" \
