@@ -225,6 +225,7 @@ install_preferred_software() {
     p7zip \
     spice-vdagent \
     spice-webdavd \
+    squashfs-tools \
     toolbox \
     transmission \
     vim \

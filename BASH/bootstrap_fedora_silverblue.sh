@@ -276,6 +276,7 @@ configure_preferred_software() {
     joystick-support \
     mpv \
     simple-scan \
+    squashfs-tools \
     teams \
     vim \
     youtube-dl \
