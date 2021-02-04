@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.6
-# Date:    23rd January 2021
+# Version: 0.0.7
+# Date:    4th February 2021
 
 #########
 # Notes #
@@ -85,6 +85,7 @@
 # | DeltaBLAST    | deltablast |
 # | MegaX         | mega       |
 # | MODELLER      | mod9.25    |
+# | pandoc        | pandoc     |
 # | PSI-BLAST     | psiblast   |
 # | PyMOL         | pymol      |
 # | R             | R          |
@@ -166,6 +167,7 @@ bootstrap_bioinformatics_container() {
       mozilla-fira-mono-fonts \
       nano \
       openssl-devel \
+      pandoc \
       perl-CPAN \
       pymol \
       qgnomeplatform \
