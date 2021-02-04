@@ -35,7 +35,7 @@
 # Global Variables > Script Metadata
 
 readonly SCRIPT_URL='https://github.com/ultraviolet-1986/shell_scripts'
-readonly SCRIPT_VERSION='0.0.4'
+readonly SCRIPT_VERSION='0.0.5'
 
 # Global Variables > Text Formatting
 
@@ -170,7 +170,7 @@ install_software_repositories() {
   # Local Variables > Repository File Paths
   local chrome_repo_file='/etc/yum.repos.d/google-chrome.repo'
   local code_repo_file='/etc/yum.repos.d/vscode.repo'
-  # local skype_repo_file='/etc/yum.repos.d/skype-stable.repo'
+  local skype_repo_file='/etc/yum.repos.d/skype-stable.repo'
   local teams_repo_file='/etc/yum.repos.d/teams.repo'
 
   # Local Variables > Get Fedora Version
@@ -192,16 +192,16 @@ install_software_repositories() {
   echo 'gpgkey=https://dl.google.com/linux/linux_signing_key.pub' | sudo tee -a "$chrome_repo_file"
   echo
 
-  # # Skype Repository
-  # echo -e "${YELLOW}Installing Skype Repository.${RESET}"
+  # Skype Repository
+  echo -e "${YELLOW}Installing Skype Repository.${RESET}"
 
-  # echo '[skype-stable]' | sudo tee "$skype_repo_file" &&
-  # echo 'name=skype (stable)' | sudo tee -a "$skype_repo_file" &&
-  # echo 'baseurl=https://repo.skype.com/rpm/stable' | sudo tee -a "$skype_repo_file" &&
-  # echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
-  # echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
-  # echo 'gpgkey=https://repo.skype.com/data/SKYPE-GPG-KEY' | sudo tee -a "$skype_repo_file"
-  # echo
+  echo '[skype-stable]' | sudo tee "$skype_repo_file" &&
+  echo 'name=skype (stable)' | sudo tee -a "$skype_repo_file" &&
+  echo 'baseurl=https://repo.skype.com/rpm/stable' | sudo tee -a "$skype_repo_file" &&
+  echo 'enabled=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'gpgcheck=1' | sudo tee -a "$skype_repo_file" &&
+  echo 'gpgkey=https://repo.skype.com/data/SKYPE-GPG-KEY' | sudo tee -a "$skype_repo_file"
+  echo
 
   # Teams Repository
   echo -e "${YELLOW}Installing Microsoft Teams Repository.${RESET}"
@@ -253,7 +253,7 @@ configure_preferred_software() {
   echo -e "${YELLOW}Note: Installing preferred Flatpak software from Flathub Remote.${RESET}\\n"
   flatpak install flathub -y "com.transmissionbt.Transmission"
   flatpak install flathub -y "org.gimp.GIMP"
-  flatpak install flathub -y "org.gnome.Boxes"
+  flatpak install flathub -y "org.gnome.Evolution"
   flatpak install flathub -y "org.libreoffice.LibreOffice"
   echo
 
@@ -263,7 +263,6 @@ configure_preferred_software() {
     clamav \
     clamav-update \
     code \
-    evolution \
     exfat-utils \
     ffmpeg \
     fuse-exfat \
@@ -277,8 +276,8 @@ configure_preferred_software() {
     mpv \
     simple-scan \
     squashfs-tools \
-    teams \
     vim \
+    VirtualBox \
     youtube-dl \
     'https://us02web.zoom.us/client/latest/zoom_x86_64.rpm' # Install Zoom.
 
