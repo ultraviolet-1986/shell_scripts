@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.7
-# Date:    4th February 2021
+# Version: 0.0.8
+# Date:    5th February 2021
 
 #########
 # Notes #
@@ -170,6 +170,7 @@ bootstrap_bioinformatics_container() {
       pandoc \
       perl-CPAN \
       pymol \
+      python3-tkinter \
       qgnomeplatform \
       qt5-qtbase \
       qt5-qtbase-common \
