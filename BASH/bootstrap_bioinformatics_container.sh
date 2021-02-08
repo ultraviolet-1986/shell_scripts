@@ -201,8 +201,8 @@ bootstrap_bioinformatics_container() {
       "${MODELLER_RPM}"
 
     # Install the PERL JSON module for use with BLAST.
-    export PERL_MM_USE_DEFAULT=1
-    toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
+    export PERL_MM_USE_DEFAULT=1 ; \
+      toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
 
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
