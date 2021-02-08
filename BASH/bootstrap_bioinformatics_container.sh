@@ -204,6 +204,9 @@ bootstrap_bioinformatics_container() {
     export PERL_MM_USE_DEFAULT=1 ; \
       toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
 
+    echo -e "\nPlease insert your MODELLER key the file:"
+    echo -e "'/usr/lib/modeller10.0/modlib/modeller/config.py'\n"
+
     # Stop and exit the container if Toolbox has not stopped it.
     sleep 1
     podman stop bioinformatics
