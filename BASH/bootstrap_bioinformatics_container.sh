@@ -158,7 +158,7 @@ bootstrap_bioinformatics_container() {
       julia \
       julia-common \
       julia-devel \
-      julia-doc
+      julia-doc \
       libcanberra* \
       libcurl-devel \
       liberation-fonts \
