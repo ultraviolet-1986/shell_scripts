@@ -5,7 +5,7 @@
 ###########
 
 # Shell Scripts: A collection of shell scripts in various languages.
-# Copyright (C) 2020 William Willis Whinn
+# Copyright (C) 2021 William Willis Whinn
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.8
-# Date:    5th February 2021
+# Version: 0.0.9
+# Date:    8th February 2021
 
 #########
 # Notes #
@@ -121,11 +121,11 @@ readonly FONT_RPM="${FONT_URL}/msttcore-fonts-installer-2.6-1.noarch.rpm"
 
 # MEGAX
 readonly MEGAX_URL='https://www.megasoftware.net/do_force_download'
-readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.2-1.x86_64.rpm"
+readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.4-1.x86_64.rpm"
 
 # MODELLER
-readonly MODELLER_URL='https://salilab.org/modeller/9.25'
-readonly MODELLER_RPM="${MODELLER_URL}/modeller-9.25-1.x86_64.rpm"
+readonly MODELLER_URL='https://salilab.org/modeller/10.0'
+readonly MODELLER_RPM="${MODELLER_URL}/modeller-10.0-1.x86_64.rpm"
 
 #############
 # Functions #
@@ -155,6 +155,10 @@ bootstrap_bioinformatics_container() {
       fira-code-fonts \
       gnu-free-mono-fonts \
       ibm-plex-mono-fonts \
+      julia \
+      julia-common \
+      julia-devel \
+      julia-doc
       libcanberra* \
       libcurl-devel \
       liberation-fonts \
@@ -197,6 +201,7 @@ bootstrap_bioinformatics_container() {
       "${MODELLER_RPM}"
 
     # Install the PERL JSON module for use with BLAST.
+    export PERL_MM_USE_DEFAULT=1
     toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
 
     # Stop and exit the container if Toolbox has not stopped it.
