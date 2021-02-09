@@ -201,8 +201,7 @@ bootstrap_bioinformatics_container() {
       "${MODELLER_RPM}"
 
     # Install the PERL JSON module for use with BLAST.
-    export PERL_MM_USE_DEFAULT=1 ; \
-      toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
+    toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
 
     echo -e "\nPlease insert your MODELLER key the file:"
     echo -e "'/usr/lib/modeller10.0/modlib/modeller/config.py'\n"
