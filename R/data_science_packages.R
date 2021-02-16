@@ -5,7 +5,7 @@
 ###########
 
 # Shell Scripts: A collection of shell scripts in various languages.
-# Copyright (C) 2020 William Willis Whinn
+# Copyright (C) 2021 William Willis Whinn
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -25,9 +25,9 @@
 #########
 
 # - This script works in conjunction with the shell script named
-#   'bootstrap_rstudio_container.sh'.
+#   'bootstrap_bioinformatics_container.sh'.
 # - Open and run this file using R Studio to install some useful data
-#   science libraries.
+#   science and bioinformatics libraries.
 # - If you are using Anaconda/Miniconda, please disable your 'conda'
 #   environment before running this script as it will interfere with
 #   building R packages from source.
@@ -40,6 +40,7 @@ R_PACKAGES <- c(
   'arules',
   'arulesViz',
   'biclust',
+  'BiocManager',
   'car',
   'caret',
   'class',
@@ -49,6 +50,7 @@ R_PACKAGES <- c(
   'forecast',
   'GGally',
   'ggplot2',
+  'gplots',
   'Hmisc',
   'igraph',
   'igraphdata',
@@ -77,9 +79,19 @@ R_PACKAGES <- c(
 )
 
 #############
+# Functions #
+#############
+
+install_bioc_pkgs <- function(){
+  BiocManager::install(c("DESeq2", "biomaRt"))
+}
+
+#############
 # Kickstart #
 #############
 
 install.packages(R_PACKAGES, dependencies=TRUE)
+
+install_bioc_pkgs()
 
 # End of File.
