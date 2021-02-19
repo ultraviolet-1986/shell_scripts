@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.9
-# Date:    8th February 2021
+# Version: 0.1.0
+# Date:    19th February 2021
 
 #########
 # Notes #
@@ -76,26 +76,27 @@
 # software repositories. Because of this, the user is advised to
 # continue at their own discretion.
 
-# | Software Name | Command    |
-# |---------------|------------|
-# | BLASTn        | blastn     |
-# | BLASTp        | blastp     |
-# | BLASTx        | blastx     |
-# | COPASI        | CopasiUI   |
-# | DeltaBLAST    | deltablast |
-# | MegaX         | mega       |
-# | MODELLER      | mod9.25    |
-# | pandoc        | pandoc     |
-# | PSI-BLAST     | psiblast   |
-# | PyMOL         | pymol      |
-# | R             | R          |
-# | rpBLAST       | rpblast    |
-# | rpstBLASTn    | rpstblastn |
-# | RStudio       | rstudio    |
-# | tBLASTn       | tblastn    |
-# | tBLASTx       | tblastx    |
-# | WINE          | wine       |
-# | Winetricks    | winetricks |
+# | Software Name   | Command         |
+# |-----------------|-----------------|
+# | BLASTn          | blastn          |
+# | BLASTp          | blastp          |
+# | BLASTx          | blastx          |
+# | COPASI          | CopasiUI        |
+# | DeltaBLAST      | deltablast      |
+# | MegaX           | mega            |
+# | MODELLER        | mod10.0         |
+# | pandoc          | pandoc          |
+# | PSI-BLAST       | psiblast        |
+# | PyMOL           | pymol           |
+# | R               | R               |
+# | rpBLAST         | rpblast         |
+# | rpstBLASTn      | rpstblastn      |
+# | RStudio         | rstudio         |
+# | SnapGene Viewer | snapgene-viewer |
+# | tBLASTn         | tblastn         |
+# | tBLASTx         | tblastx         |
+# | WINE            | wine            |
+# | Winetricks      | winetricks      |
 
 #############
 # Variables #
@@ -127,11 +128,23 @@ readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.4-1.x86_64.rpm"
 readonly MODELLER_URL='https://salilab.org/modeller/10.0'
 readonly MODELLER_RPM="${MODELLER_URL}/modeller-10.0-1.x86_64.rpm"
 
+# SNAPGENE VIEWER
+readonly SNAPGENE_URL='https://cdn.snapgene.com/downloads/SnapGeneViewer/5.x/5.2/5.2.4'
+readonly SNAPGENE_RPM="${SNAPGENE_URL}/snapgene_viewer_5.2.4_linux.rpm"
+
 #############
 # Functions #
 #############
 
 bootstrap_bioinformatics_container() {
+  # ShellCheck Directives
+  # <https://github.com/koalaman/shellcheck/wiki/SC2035>
+  # shellcheck disable=SC2035
+
+  # ShellCheck Notes
+  # - Package selection '*adwaita*' is intended to install all packages
+  #   associated to that theme, including Qt5 versions.
+
   if ( command -v 'toolbox' > /dev/null 2>&1 ) && \
     ( ping -c 1 1.1.1.1 ) &> /dev/null ; then
 
@@ -198,7 +211,8 @@ bootstrap_bioinformatics_container() {
       "${IG_RPM}" \
       "${FONT_RPM}" \
       "${MEGAX_RPM}" \
-      "${MODELLER_RPM}"
+      "${MODELLER_RPM}" \
+      "${SNAPGENE_RPM}"
 
     # Install the PERL JSON module for use with BLAST.
     toolbox run --container bioinformatics 'sudo' 'cpan' 'JSON'
