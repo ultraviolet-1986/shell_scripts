@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.1.0
-# Date:    19th February 2021
+# Version: 0.1.1
+# Date:    24th February 2021
 
 #########
 # Notes #
@@ -160,6 +160,7 @@ bootstrap_bioinformatics_container() {
     toolbox run --container bioinformatics 'sudo' 'dnf' 'install' '-y' \
       adobe-source-code-pro-fonts \
       *adwaita* \
+      byobu \
       cairo-devel \
       compat-openssl10 \
       COPASI \
