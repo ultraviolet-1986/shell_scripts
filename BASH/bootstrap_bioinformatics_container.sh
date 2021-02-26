@@ -52,6 +52,15 @@
 # Resources #
 #############
 
+# - MEGAX
+#   https://tinyurl.com/595fhpuw
+
+# - Microsoft Core Fonts
+#   https://tinyurl.com/tt6ay23t
+
+# - MODELLER
+#   https://salilab.org/modeller/
+
 # - NCBI BLAST Software and Documentation
 #   https://tinyurl.com/y9nf9q2g
 
@@ -66,6 +75,12 @@
 
 # - Pajek
 #   http://mrvar.fdv.uni-lj.si/pajek/
+
+# - SnapGene Viewer
+#   https://tinyurl.com/9tmbehx8
+
+# - VESTA
+#   http://jp-minerals.org/vesta/en/
 
 ############
 # Commands #
@@ -106,42 +121,34 @@
 # NOTE Assumes site(s) and RPM are secure. Use at your own discretion.
 
 # NCBI BLAST+
-# <https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>
 readonly BLAST_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST'
 readonly BLAST_RPM="${BLAST_URL}/ncbi-blast-2.11.0+-1.x86_64.rpm"
 
 # NCBI Magic-BLAST
-# <https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>
 readonly MAGIC_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/magicblast/LATEST'
 readonly MAGIC_RPM="${MAGIC_URL}/ncbi-magicblast-1.5.0-1.x86_64.rpm"
 
 # NCBI IgBLAST
-# <https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download>
 readonly IG_URL='https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST'
 readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.0-1.x86_64.rpm"
 
 # Microsoft Core Fonts
-# <https://sourceforge.net/projects/mscorefonts2/files/>
 readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
 readonly FONT_RPM="${FONT_URL}/msttcore-fonts-installer-2.6-1.noarch.rpm"
 
 # MEGAX
-# <https://www.megasoftware.net/>
 readonly MEGAX_URL='https://www.megasoftware.net/do_force_download'
 readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.4-1.x86_64.rpm"
 
 # MODELLER
-# <https://salilab.org/modeller/>
 readonly MODELLER_URL='https://salilab.org/modeller/10.0'
 readonly MODELLER_RPM="${MODELLER_URL}/modeller-10.0-1.x86_64.rpm"
 
 # SNAPGENE VIEWER
-# <https://www.snapgene.com/snapgene-viewer/>
 readonly SNAPGENE_URL='https://cdn.snapgene.com/downloads/SnapGeneViewer/5.x/5.2/5.2.4'
 readonly SNAPGENE_RPM="${SNAPGENE_URL}/snapgene_viewer_5.2.4_linux.rpm"
 
 # VESTA
-# <http://jp-minerals.org/vesta/en/>
 readonly VESTA_URL='http://jp-minerals.org/vesta/archives/3.5.7'
 readonly VESTA_RPM="${VESTA_URL}/vesta-3.5.7-1.x86_64.rpm"
 
