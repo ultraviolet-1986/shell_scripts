@@ -130,7 +130,7 @@ readonly MAGIC_RPM="${MAGIC_URL}/ncbi-magicblast-1.5.0-1.x86_64.rpm"
 
 # NCBI IgBLAST
 readonly IG_URL='https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST'
-readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.0-1.x86_64.rpm"
+readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.1-1.x86_64.rpm"
 
 # Microsoft Core Fonts
 readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
@@ -178,14 +178,13 @@ bootstrap_bioinformatics_container() {
     # Install software and dependencies into the 'bioinformatics'
     # container.
     toolbox run --container bioinformatics 'sudo' 'dnf' 'install' '-y' \
-      adobe-source-code-pro-fonts \
       *adwaita* \
+      adobe-source-code-pro-fonts \
       byobu \
       cairo-devel \
       compat-openssl10 \
       COPASI \
       COPASI-gui \
-      python3-COPASI \
       fira-code-fonts \
       gnu-free-mono-fonts \
       ibm-plex-mono-fonts \
@@ -208,6 +207,7 @@ bootstrap_bioinformatics_container() {
       pandoc \
       perl-CPAN \
       pymol \
+      python3-COPASI \
       python3-tkinter \
       qgnomeplatform \
       qt5-qtbase \
