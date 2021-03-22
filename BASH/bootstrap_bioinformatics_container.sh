@@ -178,14 +178,13 @@ bootstrap_bioinformatics_container() {
     # Install software and dependencies into the 'bioinformatics'
     # container.
     toolbox run --container bioinformatics 'sudo' 'dnf' 'install' '-y' \
-      adobe-source-code-pro-fonts \
       *adwaita* \
+      adobe-source-code-pro-fonts \
       byobu \
       cairo-devel \
       compat-openssl10 \
       COPASI \
       COPASI-gui \
-      python3-COPASI \
       fira-code-fonts \
       gnu-free-mono-fonts \
       ibm-plex-mono-fonts \
@@ -208,6 +207,7 @@ bootstrap_bioinformatics_container() {
       pandoc \
       perl-CPAN \
       pymol \
+      python3-COPASI \
       python3-tkinter \
       qgnomeplatform \
       qt5-qtbase \
