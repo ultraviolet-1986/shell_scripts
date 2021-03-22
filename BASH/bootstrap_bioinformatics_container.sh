@@ -130,7 +130,7 @@ readonly MAGIC_RPM="${MAGIC_URL}/ncbi-magicblast-1.5.0-1.x86_64.rpm"
 
 # NCBI IgBLAST
 readonly IG_URL='https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST'
-readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.0-1.x86_64.rpm"
+readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.1-1.x86_64.rpm"
 
 # Microsoft Core Fonts
 readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'

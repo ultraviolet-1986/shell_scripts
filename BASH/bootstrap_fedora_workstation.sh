@@ -60,6 +60,7 @@
 remove_unused_software() {
   sudo dnf remove -y \
     cheese \
+    gnome-boxes \
     gnome-calendar \
     gnome-contacts \
     gnome-documents \
@@ -201,6 +202,7 @@ install_sublime_text() {
 
 install_preferred_software() {
   sudo dnf install -y \
+    bchunk \
     clamav \
     clamav-update \
     evolution \
@@ -219,6 +221,7 @@ install_preferred_software() {
     kernel-headers \
     kernel-modules-extra \
     libreoffice \
+    mame-tools \
     mesa-libGLU \
     mpv \
     nano \
@@ -228,6 +231,7 @@ install_preferred_software() {
     squashfs-tools \
     toolbox \
     transmission \
+    VirtualBox \
     vim \
     youtube-dl \
     vlgothic-fonts \
@@ -354,8 +358,8 @@ install_microsoft_fonts
 install_microsoft_teams
 # install_skype
 # install_google_chrome
-install_chromium
-# install_sublime_text
+# install_chromium
+install_sublime_text
 
 install_preferred_software
 
@@ -370,15 +374,15 @@ install_ruby
 
 # DNF DRIVER SOFTWARE
 
-# install_intel_drivers # Comment for AMD-based systems.
+install_intel_drivers # Comment for AMD-based systems.
 
 # UNIVERSAL SOFTWARE CONFIGURATION
 
 # FLATPAK
-# configure_flathub
+configure_flathub
 
 # SNAP
-# configure_snapd
+configure_snapd
 
 # UPDATE CLAMAV
 
