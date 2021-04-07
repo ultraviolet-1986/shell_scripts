@@ -94,8 +94,8 @@ def tarhash_create_archive(directory):
     archive = "{0}.tar.gz".format(directory)
 
     # Construct tar command.
-    tar_command = "tar -czf '{0}' '{1}' --absolute-names".format(archive,
-                                                                 directory)
+    tar_command = ("tar -czf '{0}' '{1}' --absolute-names; sync"
+                   .format(archive, directory))
 
     # Error: Target does not exist.
     if not os.path.exists(directory):
@@ -149,7 +149,8 @@ def tarhash_create_sha512sum(archive):
     sha512sum_file = archive.replace(".tar.gz", ".sha512sum")
 
     # Compile SHA512SUM command.
-    sha512sum_command = "sha512sum {0} > {1}".format(archive, sha512sum_file)
+    sha512sum_command = "sha512sum {0} > {1}; sync".format(archive,
+                                                           sha512sum_file)
 
     # Success: File exists and is a file.
     if os.path.isfile(archive):
