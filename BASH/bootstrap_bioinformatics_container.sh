@@ -121,15 +121,15 @@
 # NOTE Assumes site(s) and RPM are secure. Use at your own discretion.
 
 # NCBI BLAST+
-readonly BLAST_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST'
+readonly BLAST_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.11.0'
 readonly BLAST_RPM="${BLAST_URL}/ncbi-blast-2.11.0+-1.x86_64.rpm"
 
 # NCBI Magic-BLAST
-readonly MAGIC_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/magicblast/LATEST'
-readonly MAGIC_RPM="${MAGIC_URL}/ncbi-magicblast-1.5.0-1.x86_64.rpm"
+readonly MAGIC_URL='https://ftp.ncbi.nlm.nih.gov/blast/executables/magicblast/1.6.0'
+readonly MAGIC_RPM="${MAGIC_URL}/ncbi-magicblast-1.6.0-1.x86_64.rpm"
 
 # NCBI IgBLAST
-readonly IG_URL='https://ftp.ncbi.nih.gov/blast/executables/igblast/release/LATEST'
+readonly IG_URL='https://ftp.ncbi.nih.gov/blast/executables/igblast/release/1.17.1'
 readonly IG_RPM="${IG_URL}/ncbi-igblast-1.17.1-1.x86_64.rpm"
 
 # Microsoft Core Fonts
@@ -137,16 +137,16 @@ readonly FONT_URL='https://downloads.sourceforge.net/project/mscorefonts2/rpms'
 readonly FONT_RPM="${FONT_URL}/msttcore-fonts-installer-2.6-1.noarch.rpm"
 
 # MEGAX
-readonly MEGAX_URL='https://www.megasoftware.net/do_force_download'
-readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.4-1.x86_64.rpm"
+readonly MEGAX_URL='https://www.megasoftware.net/releases'
+readonly MEGAX_RPM="${MEGAX_URL}/megax-10.2.5-1.x86_64.rpm"
 
 # MODELLER
-readonly MODELLER_URL='https://salilab.org/modeller/10.0'
-readonly MODELLER_RPM="${MODELLER_URL}/modeller-10.0-1.x86_64.rpm"
+readonly MODELLER_URL='https://salilab.org/modeller/10.1'
+readonly MODELLER_RPM="${MODELLER_URL}/modeller-10.1-1.x86_64.rpm"
 
 # SNAPGENE VIEWER
-readonly SNAPGENE_URL='https://cdn.snapgene.com/downloads/SnapGeneViewer/5.x/5.2/5.2.4'
-readonly SNAPGENE_RPM="${SNAPGENE_URL}/snapgene_viewer_5.2.4_linux.rpm"
+readonly SNAPGENE_URL='https://cdn.snapgene.com/downloads/SnapGeneViewer/5.x/5.2/5.2.5'
+readonly SNAPGENE_RPM="${SNAPGENE_URL}/snapgene_viewer_5.2.5_linux.rpm"
 
 # VESTA
 readonly VESTA_URL='http://jp-minerals.org/vesta/archives/3.5.7'
