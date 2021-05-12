@@ -182,7 +182,6 @@ bootstrap_bioinformatics_container() {
       adobe-source-code-pro-fonts \
       byobu \
       cairo-devel \
-      compat-openssl10 \
       COPASI \
       COPASI-gui \
       fira-code-fonts \
