@@ -250,11 +250,12 @@ configure_preferred_software() {
   clear
 
   # Install Flatpak Software.
-  echo -e "${YELLOW}Note: Installing preferred Flatpak software from Fedora Remote.${RESET}\\n"
-  flatpak install fedora -y "com.transmissionbt.Transmission"
-  flatpak install fedora -y "org.gimp.GIMP"
-  flatpak install fedora -y "org.gnome.Evolution"
-  flatpak install fedora -y "org.libreoffice.LibreOffice"
+  echo -e "${YELLOW}Note: Installing preferred Flatpak software from Flathub Remote.${RESET}\\n"
+  flatpak install flathub -y "com.github.rafostar.Clapper"
+  flatpak install flathub -y "com.transmissionbt.Transmission"
+  flatpak install flathub -y "org.gimp.GIMP"
+  flatpak install flathub -y "org.gnome.Evolution"
+  flatpak install flathub -y "org.libreoffice.LibreOffice"
   echo
 
   # Install RPM Software.

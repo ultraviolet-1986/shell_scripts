@@ -25,8 +25,8 @@
 ############
 
 # Author:  William Whinn
-# Version: 0.0.1
-# Date:    15th January 2021
+# Version: 0.0.2
+# Date:    9th October 2021
 
 ###############
 # Description #
@@ -213,6 +213,7 @@ install_preferred_software() {
     gcc-c++ \
     genisoimage \
     git \
+    gnome-shell-extension-appindicator \
     gnome-terminal-nautilus \
     gnome-tweaks \
     java-11-openjdk-headless \
@@ -357,7 +358,7 @@ install_visual_studio_code
 install_microsoft_fonts
 install_microsoft_teams
 # install_skype
-# install_google_chrome
+install_google_chrome
 # install_chromium
 install_sublime_text
 
@@ -382,7 +383,7 @@ install_intel_drivers # Comment for AMD-based systems.
 configure_flathub
 
 # SNAP
-configure_snapd
+# configure_snapd
 
 # UPDATE CLAMAV
 
