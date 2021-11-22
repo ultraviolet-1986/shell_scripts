@@ -76,6 +76,7 @@ configure_default_wallpaper(){
   cd ~- || return 1
 
   gsettings set org.gnome.desktop.background picture-uri "file://$wallpaper_dir/$wallpaper_file"
+  gsettings set org.gnome.desktop.screensaver picture-uri "file://$wallpaper_dir/$wallpaper_file"
 
   echo
   return 0
@@ -83,16 +84,15 @@ configure_default_wallpaper(){
 
 disable_desktop_icons(){
   gnome-extensions disable desktop-icons@csoriano
+  # gnome-extensions disable ding@rastersoft.com  # Ubuntu 20.04+
 }
 
 configure_gnome_dock(){
   gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed false
   gsettings set org.gnome.shell.extensions.dash-to-dock autohide true
   gsettings set org.gnome.shell.extensions.dash-to-dock intellihide true
-  gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode \
-    'FOCUS_APPLICATION_WINDOWS'
-  gsettings set org.gnome.shell.extensions.dash-to-dock click-action \
-    'minimize'
+  gsettings set org.gnome.shell.extensions.dash-to-dock intellihide-mode 'FOCUS_APPLICATION_WINDOWS'
+  gsettings set org.gnome.shell.extensions.dash-to-dock click-action 'minimize'
 }
 
 sort_menu_items(){
