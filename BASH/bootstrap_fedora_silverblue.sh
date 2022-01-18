@@ -270,6 +270,8 @@ configure_preferred_software() {
     gcc \
     'gcc-c++' \
     genisoimage \
+    gnome-extensions-app \
+    gnome-shell-extension-appindicator \
     gnome-tweaks \
     google-chrome-stable \
     java-11-openjdk-headless \
@@ -277,10 +279,9 @@ configure_preferred_software() {
     mpv \
     simple-scan \
     squashfs-tools \
-    vim \
-    VirtualBox \
-    youtube-dl \
-    'https://us02web.zoom.us/client/latest/zoom_x86_64.rpm' # Install Zoom.
+    VirtualBox
+
+    rpm-ostree install 'https://us02web.zoom.us/client/latest/zoom_x86_64.rpm' # Install Zoom.
 
   echo -e "\\n${GREEN}Success: Please Reboot and select Option 4.${RESET}\\n"
   return 0
