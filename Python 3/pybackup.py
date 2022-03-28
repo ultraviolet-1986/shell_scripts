@@ -223,6 +223,11 @@ MINECRAFT_DATA_FOLDER = f'{HOME}/.minecraft'
 MINECRAFT_DATA_ARCHIVE = f'{BACKUP}/Minecraft'
 backup_folder(MINECRAFT_DATA_ARCHIVE, MINECRAFT_DATA_FOLDER)
 
+# Backup Minecraft (Flatpak).
+MINECRAFT_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/com.mojang.Minecraft'
+MINECRAFT_FLATPAK_DATA_ARCHIVE = f'{BACKUP}/MinecraftFlatpakBackup'
+backup_folder(MINECRAFT_FLATPAK_DATA_ARCHIVE, MINECRAFT_FLATPAK_DATA_FOLDER)
+
 # Backup MultiMC (DEB Package).
 MULTIMC_DATA_FOLDER = f'{HOME}/.local/share/multimc'
 MULTIMC_DATA_ARCHIVE = f'{BACKUP}/MultiMCBackup'
