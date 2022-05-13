@@ -158,6 +158,11 @@ print(f"{LIGHT_YELLOW}Now performing backup of Home Folder data. Please Wait...{
 # Record GTK-based desktop settings.
 backup_dconf_settings()
 
+# Home 'bin' folder.
+BIN_DATA_FOLDER = f'{HOME}/bin'
+BIN_DATA_ARCHIVE = f'{BACKUP}/bin'
+backup_folder(BIN_DATA_ARCHIVE, BIN_DATA_FOLDER)
+
 # Backup Dwarf Fortress (Snap).
 DF_DATA_FOLDER = f'{HOME}/snap/dwarffortress'
 DF_DATA_ARCHIVE = f'{BACKUP}/DwarfFortressSnap'
