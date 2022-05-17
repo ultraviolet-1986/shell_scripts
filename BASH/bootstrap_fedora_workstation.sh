@@ -206,6 +206,7 @@ install_preferred_software() {
     clamav \
     clamav-update \
     evolution \
+    evolution-ews \
     exfat-utils \
     ffmpeg \
     fuse-exfat \
