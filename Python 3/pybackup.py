@@ -193,6 +193,11 @@ GNOMECONTACTS_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.gnome.Contacts'
 GNOMECONTACTS_FLATPAK_DATA_ARCHIVE = f'{BACKUP}/GNOMEContactsFlatpakBackup'
 backup_folder(GNOMECONTACTS_FLATPAK_DATA_ARCHIVE, GNOMECONTACTS_FLATPAK_DATA_FOLDER)
 
+# Backup Microsoft Edge.
+EDGE_DATA_FOLDER = f'{HOME}/.config/microsoft-edge'
+EDGE_DATA_ARCHIVE = f'{BACKUP}/MicrosoftEdge'
+backup_folder(EDGE_DATA_ARCHIVE, EDGE_DATA_FOLDER)
+
 # Backup Evince (Flatpak).
 EVINCE_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.gnome.Evince'
 EVINCE_FLATPAK_DATA_ARCHIVE = f'{BACKUP}/EvinceFlatpakBackup'
@@ -203,6 +208,11 @@ EVOLUTION_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.gnome.Evolution'
 EVOLUTION_FLATPAK_DATA_ARCHIVE = f'{BACKUP}/EvolutionFlatpakBackup'
 backup_folder(EVOLUTION_FLATPAK_DATA_ARCHIVE, EVOLUTION_FLATPAK_DATA_FOLDER)
 
+# Backup Firefox (Native).
+FIREFOX_DATA_FOLDER = f'{HOME}/.mozilla'
+FIREFOX_DATA_ARCHIVE = f'{BACKUP}/Firefox'
+backup_folder(FIREFOX_DATA_ARCHIVE, FIREFOX_DATA_FOLDER)
+
 # Backup Firefox (Flatpak).
 FIREFOX_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.mozilla.firefox'
 FIREFOX_FLATPAK_DATA_ARCHIVE = f'{BACKUP}/FirefoxFlatpakBackup'
@@ -212,6 +222,11 @@ backup_folder(FIREFOX_FLATPAK_DATA_ARCHIVE, FIREFOX_FLATPAK_DATA_FOLDER)
 GEDIT_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.gnome.gedit'
 GEDIT_FLATPAK_DATA_ARCHIVE = f'{BACKUP}/GEditFlatpakBackup'
 backup_folder(GEDIT_FLATPAK_DATA_ARCHIVE, GEDIT_FLATPAK_DATA_FOLDER)
+
+# Backup Google Chrome.
+CHROME_DATA_FOLDER = f'{HOME}/.config/google-chrome'
+CHROMA_DATA_ARCHIVE = f'{BACKUP}/GoogleChrome'
+backup_folder(CHROMA_DATA_ARCHIVE, CHROME_DATA_FOLDER)
 
 # Backup Inkscape (Flatpak).
 INKSCAPE_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.inkscape.Inkscape'
