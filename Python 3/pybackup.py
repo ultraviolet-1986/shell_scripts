@@ -67,6 +67,7 @@ UNDERLINE = '\033[4m'
 COLOUR_RESET = '\033[0;m'
 
 # Linux Environmental Variables
+# NOTE Ubuntu does not 'see' these variables. Export them first.
 DESKTOP = os.environ['XDG_CURRENT_DESKTOP']
 HOME = os.environ['HOME']
 HOSTNAME = os.environ['HOSTNAME'].upper()
