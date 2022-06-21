@@ -110,9 +110,13 @@ def create_checksum():
     """Create a SHA512 checksum of the BACKUP archive(s)."""
     if glob.glob(f'{BACKUP}/*.zip'):
         sha512sum_file = 'BACKUP.sha512sum'
-        sha512sum_command = f'current_dir="$(pwd)"; cd {BACKUP}; sha512sum *.zip > "{BACKUP}/{sha512sum_file}"; cd "$current_dir"'
+        sha512sum_command = f'sha512sum *.zip > "{BACKUP}/{sha512sum_file}"'
 
+        previous_directory = os.getcwd()
+        os.chdir(f"{BACKUP}")
         subprocess.run(sha512sum_command, shell=True, check=True)
+        os.chdir(f'{previous_directory}')
+
         print(f'Created Checksum {YELLOW}{BACKUP}/{sha512sum_file}{COLOUR_RESET}.')
     else:
         pass
