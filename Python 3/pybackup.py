@@ -230,8 +230,8 @@ backup_folder(GEDIT_FLATPAK_DATA_ARCHIVE, GEDIT_FLATPAK_DATA_FOLDER)
 
 # Backup Google Chrome.
 CHROME_DATA_FOLDER = f'{HOME}/.config/google-chrome'
-CHROMA_DATA_ARCHIVE = f'{BACKUP}/GoogleChrome'
-backup_folder(CHROMA_DATA_ARCHIVE, CHROME_DATA_FOLDER)
+CHROME_DATA_ARCHIVE = f'{BACKUP}/GoogleChrome'
+backup_folder(CHROME_DATA_ARCHIVE, CHROME_DATA_FOLDER)
 
 # Backup Inkscape (Flatpak).
 INKSCAPE_FLATPAK_DATA_FOLDER = f'{HOME}/.var/app/org.inkscape.Inkscape'
